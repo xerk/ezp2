@@ -69,7 +69,7 @@ class CheckoutController extends Controller
             'billing_address' => $request->billing_address,
             'city_id' => $request->city_id,
             'billing_phone' => $request->billing_phone,
-            'billing_subtotal' => Cart::subtotal(),
+            'billing_subtotal' => Cart::total(),
             'billing_tax' => Cart::tax(),
             'billing_total' => Cart::total(),
             'payment_gateway' => 1,
