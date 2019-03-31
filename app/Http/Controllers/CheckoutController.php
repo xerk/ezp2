@@ -63,7 +63,7 @@ class CheckoutController extends Controller
     {
         // Insert into orders table
         $order = Order::create([
-            // 'user_id' => auth()->user() ? auth()->user()->id : null,
+            'user_id' => auth()->user() ? auth()->user()->id : null,
             'billing_email' => $request->billing_email,
             'billing_name' => $request->billing_name,
             'billing_address' => $request->billing_address,
