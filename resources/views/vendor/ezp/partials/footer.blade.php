@@ -1,51 +1,4 @@
-<!-- ***** Special Featured Area Start ***** -->
-<section class="special_feature_area d-md-flex align-items-center">
-    <!-- Single Feature Area -->
-    <div class="single_feature_area d-flex align-items-center justify-content-center">
-        <div class="feature_icon">
-            <i class="ti-truck"></i>
-            <span><i class="ti-check" aria-hidden="true"></i></span>
-        </div>
-        <div class="feature_content">
-            <h6>{{__('FREE SHIPPING')}}</h6>
-            {{-- <p>For orders above $100</p> --}}
-        </div>
-    </div>
-    <!-- Single Feature Area -->
-    <div class="single_feature_area d-flex align-items-center justify-content-center">
-        <div class="feature_icon">
-            <i class="ti-headphone-alt"></i>
-            <span><i class="ti-check" aria-hidden="true"></i></span>
-        </div>
-        <div class="feature_content">
-            <h6>{{__('Customer Care')}}</h6>
-            <p>{{__('24/7 Friendly Support')}}</p>
-        </div>
-    </div>
-    <!-- Single Feature Area -->
-    <div class="single_feature_area d-flex align-items-center justify-content-center">
-        <div class="feature_icon">
-            <i class="ti-back-left"></i>
-            <span><i class="ti-check" aria-hidden="true"></i></span>
-        </div>
-        <div class="feature_content">
-            <h6>{{__('Happy Returns')}}</h6>
-            <p>{{__('7 Days free Returns')}}</p>
-        </div>
-    </div>
-    <!-- Single Feature Area -->
-    <div class="single_feature_area d-flex align-items-center justify-content-center">
-        <div class="feature_icon">
-            <i class="ti-credit-card"></i>
-            <span><i class="ti-check" aria-hidden="true"></i></span>
-        </div>
-        <div class="feature_content">
-            <h6>{{__('100% Money Back')}}</h6>
-            <p>{{__('If product is damaged')}}</p>
-        </div>
-    </div>
-</section>
-<!-- ***** Special Featured Area End ***** -->
+
 <!-- ***** Footer Area Start ***** -->
 <footer class="footer_area home-3 section_padding_100">
     <div class="container-fluid">
@@ -71,76 +24,13 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg">
-                <div class="single_footer_area">
-                    <div class="footer_heading mb-30">
-                        <h6>Account</h6>
-                    </div>
-                    <ul class="footer_widget_menu">
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Your Account</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Free Shipping Policy</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Your Cart</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Return Policy</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Free Coupon</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Delivary Info</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg">
-                <div class="single_footer_area">
-                    <div class="footer_heading mb-30">
-                        <h6>Support</h6>
-                    </div>
-                    <ul class="footer_widget_menu">
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Help</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Product Support</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Terms &amp; Conditions</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Privacy Policy</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Payment Method</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Affiliate Proggram</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg">
-                <div class="single_footer_area">
-                    <div class="footer_heading mb-30">
-                        <h6>Join Our Mailing List</h6>
-                    </div>
-                    <div class="subscribtion_form">
-                        <form action="#" method="post">
-                            <input type="email" name="mail" class="mail" placeholder="Your E-mail Addrees">
-                            <button type="submit" class="submit"><i class="fa fa-check" aria-hidden="true"></i></button>
-                        </form>
-                    </div>
-                </div>
                 <div class="single_footer_area mt-30">
                     <div class="footer_heading mb-15">
                         <h6>Download our Mobile Apps</h6>
                     </div>
                     <div class="apps_download">
                         <a href="#"><img src="{{ asset('img/core-img/play-store.png') }}" alt="Play Store"></a>
-                        <a href="#"><img src="{{ asset('img/core-img/app-store.png') }}" alt="Apple Store"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="line"></div>
-        <div class="footer_bottom_area">
-            <div class="row">
-                <div class="col-12 col-md">
-                    <div class="copywrite_text text-left d-flex align-items-center">
-                        <p>Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#">XerK</a>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-12 col-md">
-                    <div class="payment_method text-right">
-                        <img src="{{ asset('img/payment-method/paypal.png') }}" alt="">
-                        <img src="{{ asset('img/payment-method/maestro.png') }}" alt="">
-                        <img src="{{ asset('img/payment-method/western-union.png') }}" alt="">
-                        <img src="{{ asset('img/payment-method/discover.png') }}" alt="">
-                        <img src="{{ asset('img/payment-method/american-express.png') }}" alt="">
+                        {{-- <a href="#"><img src="{{ asset('img/core-img/app-store.png') }}" alt="Apple Store"></a> --}}
                     </div>
                 </div>
             </div>

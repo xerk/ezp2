@@ -82,15 +82,15 @@
 </div>
 <!-- ***** Quick View Modal Area End ***** -->
 <!-- ***** New Arrivals Area Start ***** -->
-<section class="new_arrivals_area section_padding_100 clearfix">
+<section class="new_arrivals_area section_padding_50 clearfix">
     <div class="container">
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-12">
                 <div class="section_heading new_arrivals">
                     <h5>{{__('Brands')}}</h5>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="row">
             <div class="col-12">
                 <div class="new_arrivals_slides">
@@ -114,7 +114,7 @@
     </div>
 </section>
 <!-- ***** New Arrivals Area End ***** -->
-<section class="shop_grid_area section_padding_100_70">
+<section class="shop_grid_area">
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-3 d-none d-sm-block d-lg-block col-md-3">
@@ -147,14 +147,14 @@
 
             <div class="col-12 col-sm-9 col-md-9">
                 <div class="shop_grid_product_area">
-                    <div class="shop_top_sidebar_area mb-30">
+                    {{-- <div class="shop_top_sidebar_area mb-30">
                         <div class="view_area d-inline-block">
                             <div class="grid_view d-inline-block"><a href="shop-grid-left-sidebar.html"><i
                                         class="fa fa-th" aria-hidden="true"></i></a></div>
                             <div class="list_view ml-15 d-inline-block"><a href="shop-list-left-sidebar.html"><i
                                         class="fa fa-th-list" aria-hidden="true"></i></a></div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="row">
                         @foreach ($products as $product)
                         <div class="col-6 col-sm-6 col-lg-4">

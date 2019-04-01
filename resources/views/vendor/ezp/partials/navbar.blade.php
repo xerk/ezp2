@@ -32,7 +32,9 @@
                                     </div> --}}
                                     <!-- Cart Area -->
                                     <div class="cart">
-                                        <a href="#" id="header-cart-btn" target="_blank"><i class="ti-bag"></i>
+                                        <a href="#" id="header-cart-btn" target="_blank"><i class="material-icons">
+                                            add_shopping_cart
+                                            </i>
                                             @if (Cart::instance('default')->count() > 0)
                                                 <span class="cart_quantity">{{ Cart::instance('default')->count() }}</span>
                                             @endif
@@ -83,8 +85,6 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    @else
-                                    <a href="{{ route('login') }}" class="btn bigshop-btn bigshop-btn-sm">{{ __('Login') }}</a>
                                     @endauth
                                 </div>
                             </div>
@@ -97,6 +97,9 @@
                                     <li class="{{ request()->is('about') ? 'active' : '' }}"><a href="{{ route('landingPage') }}">About Us</a></li>
                                     <li class="{{ request()->is('contact') ? 'active' : '' }}"><a href="{{ route('landingPage') }}">Contact</a></li>
                                     <li class="{{ request()->is('fqa') ? 'active' : '' }}"><a href="{{ route('landingPage') }}">FAQ</a></li>
+                                    <li>
+                                        <a href="{{ route('login') }}" class="">{{ __('Login') }}</a>
+                                    </li>
                                 </ul>
                             </div>
 

@@ -23,7 +23,7 @@
             margin: 0,
             loop: true,
             nav: false,
-            dots: true,
+            dots: false,
             nav: true,
             navText: ['<i class="ti-arrow-left"></i>','<i class="ti-arrow-right"></i>'],
             autoplay: true,

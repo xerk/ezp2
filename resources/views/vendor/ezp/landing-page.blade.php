@@ -3,15 +3,15 @@
 @section('content')
 @include('vendor.ezp.partials.slider')
 <!-- ***** New Arrivals Area Start ***** -->
-<section class="new_arrivals_area section_padding_100 clearfix">
+<section class="new_arrivals_area section_padding_50 clearfix">
     <div class="container">
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-12">
                 <div class="section_heading new_arrivals">
                     <h5>{{__('Brands')}}</h5>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="row">
             <div class="col-12">
                 <div class="new_arrivals_slides">
@@ -36,15 +36,15 @@
 </section>
 <!-- ***** New Arrivals Area End ***** -->
 <!-- ***** New Arrivals Area Start ***** -->
-<div class="new_arrival home-3 section_padding_70">
+<div class="new_arrival home-3">
     <div class="container-fluid">
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-12">
                 <div class="popular_section_heading mb-50 text-center">
                     <h5>{{__('POPULAR Cards')}}</h5>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="row">
             @foreach (App\Product::where('featured', true)->take(8)->inRandomOrder()->get() as $item)

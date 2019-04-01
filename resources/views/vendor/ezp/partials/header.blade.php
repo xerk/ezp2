@@ -12,6 +12,9 @@
     <!-- Favicon  -->
     <link rel="shortcut icon" href="{{ asset('img/core-img/favicon.ico') }}">
 
+    {{-- material fonts --}}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="{{ asset('css/core-style.css') }}">
     <link rel="stylesheet" href="{{asset('css/style.css') }}">
