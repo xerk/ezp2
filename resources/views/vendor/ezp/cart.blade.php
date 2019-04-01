@@ -7,8 +7,8 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active">Cart</li>
+                        <li class="breadcrumb-item"><a href="index.html">{{__('Home')}}</a></li>
+                        <li class="breadcrumb-item active">{{__('Cart')}}</li>
                     </ol>
                 </div>
             </div>
@@ -41,11 +41,11 @@
                             <thead>
                                 <tr>
                                     <th><i class="fa fa-trash-o" aria-hidden="true"></i></th>
-                                    <th>Image</th>
-                                    <th>Product</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
+                                    <th>{{__('Image')}}</th>
+                                    <th>{{__('Product')}}</th>
+                                    <th>{{__('Price')}}</th>
+                                    <th>{{__('Quantity')}}</th>
+                                    <th>{{__('Total')}}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -79,18 +79,14 @@
                                             </select>
                                         </div>
                                     </td>
-                                    <td class="total_price"><span>$49.88</span></td>
+                                    <td class="total_price"><span>{{ $item->price }}</span></td>
                                 </tr>
                                 @endforeach
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td>Total (tax incl.)</td>
-                                    <td>{{ Cart::total() }} L.E</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Total</strong></td>
-                                    <td><strong>{{ Cart::subtotal() }} L.E</strong></td>
+                                    <td><strong>{{__('Total')}}</strong></td>
+                                    <td><strong>{{ Cart::total() }} L.E</strong></td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -101,19 +97,19 @@
                     @if (Cart::instance('default')->count() > 0)
                         <div class="back-to-shop w-50">
                             <a href="{{ route('shop') }}" class="btn bigshop-btn"><i class="fa fa-undo"
-                                    aria-hidden="true"></i> Back to Shopping</a>
+                                    aria-hidden="true"></i> {{__('Back to Shopping')}}</a>
                         </div>
                         <div class="update-checkout w-50 text-right">
                             {{-- <a href="#" class="btn bigshop-btn">Update Cart</a> --}}
-                            <a href="{{ route('checkout.index') }}" class="btn bigshop-btn">Checkout</a>
+                            <a href="{{ route('checkout.index') }}" class="btn bigshop-btn">{{__('Checkout')}}</a>
                         </div>
                     @else
                         <div class="update-checkout w-100 text-center">
-                            <h1>Not item in your cart</h1>
+                            <h1>{{__('Not item in your cart')}}</h1>
                         </div>
                         <div class="update-checkout w-100 text-center">
                         <a href="{{ route('shop') }}" class="btn bigshop-btn  justify-content-center"><i class="fa fa-undo"
-                            aria-hidden="true"></i> Back to Shopping</a>
+                            aria-hidden="true"></i> {{__('Back to Shopping')}}</a>
                         </div>
                     @endif
                 </div>

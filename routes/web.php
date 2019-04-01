@@ -18,6 +18,17 @@ Route::get('/', function () {
     return view('vendor.ezp.landing-page');
 })->name('landingPage');
 
+Route::get('/welcome', function () {
+    $config['center'] = 'Giza, Egypt';
+    $config['zoom'] = '14';
+    $config['map_height'] = '500px';
+    $config['scrollwheel'] = false;
+
+    GMaps::initialize($config);
+    $map = GMaps::create_map();
+    return view('welcome')->with('map', $map);
+});
+
 Route::get('checkout', 'CheckoutController@index')->name('checkout.index');
 Route::post('checkout', 'CheckoutController@store')->name('checkout.store');
 

@@ -18,7 +18,7 @@
                                     <img class="hover_img" src="img/product-img/new-1.png" alt="">
                                     <!-- Product Badge -->
                                     <div class="product_badge">
-                                        <span class="badge-new">New</span>
+                                        <span class="badge-new">{{__('New')}}</span>
                                     </div>
 
                                 </div>
@@ -81,20 +81,52 @@
     </div>
 </div>
 <!-- ***** Quick View Modal Area End ***** -->
+<!-- ***** New Arrivals Area Start ***** -->
+<section class="new_arrivals_area section_padding_100 clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section_heading new_arrivals">
+                    <h5>{{__('Brands')}}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="new_arrivals_slides">
+                    @foreach (App\Company::all() as $item)
+                    <!-- Singel Arrivals Slide Start -->
+                    <div class="single_arrivals_slide">
+                        <a href="{{ route('shop', [ 'company' => $item->id ]) }}" class="product_image">
+                            <!-- Product Image -->
+                            <img class="normal_img" width="128" src="{{ asset('storage/'. $item->image)}}" alt="">
 
+                            <!-- Product Badge -->
+                            <div class="product_badge">
+                                <span class="badge-new">{{ $item->name }}</span>
+                            </div>
+                        </a>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** New Arrivals Area End ***** -->
 <section class="shop_grid_area section_padding_100_70">
     <div class="container">
         <div class="row">
-            <div class="col-3 col-md-3">
+            <div class="col-12 col-sm-3 d-none d-sm-block d-lg-block col-md-3">
                 <div class="shop_sidebar_area">
                     <div class="widget catagory mb-30">
-                        <h6 class="widget-title">Product Categories</h6>
+                        <h6 class="widget-title">{{__('Product Categories')}}</h6>
                         <div class="widget-desc">
                             <div class="custom-control custom-radio d-flex align-items-center mb-2">
                                 <input type="radio" onclick='window.location.assign("{{route("shop")}}")'
                                     {{ (route("shop") == Request::fullUrl() ? 'checked' : '') }}
                                     class="custom-control-input" name="company" id="all">
-                                <label class="custom-control-label" for="all">All Companies <span
+                                <label class="custom-control-label" for="all">{{__('All Companies')}} <span
                                         class="text-muted">({{App\Product::count()}})</span></label>
                             </div>
                             @foreach ($companies as $company)
@@ -113,7 +145,7 @@
                 </div>
             </div>
 
-            <div class="col-9 col-md-9">
+            <div class="col-12 col-sm-9 col-md-9">
                 <div class="shop_grid_product_area">
                     <div class="shop_top_sidebar_area mb-30">
                         <div class="view_area d-inline-block">
@@ -135,7 +167,7 @@
 
                                         <!-- Product Badge -->
                                         <div class="product_badge">
-                                            <span class="badge-new">New</span>
+                                            <span class="badge-new">{{__('New')}}</span>
                                         </div>
                                         <!-- Add to cart -->
                                         <div class="product_add_to_cart">
@@ -150,7 +182,7 @@
                                         <!-- Quick View -->
                                         <div class="product_quick_view">
                                             <a href="#" data-toggle="modal" data-target="#product-{{ $product->id }}"><i class="ti-eye"
-                                                    aria-hidden="true"></i> Quick View</a>
+                                                    aria-hidden="true"></i> {{__('Quick View')}}</a>
                                         </div>
                                     </div>
                                     <!-- Product Description -->

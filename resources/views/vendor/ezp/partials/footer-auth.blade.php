@@ -4,7 +4,7 @@
                 <div class="row">
                     <div class="col-12 col-md">
                         <div class="copywrite_text text-left d-flex align-items-center">
-                            <p>Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#">Designing World</a></p>
+                            <p>Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#">XERK</a></p>
                         </div>
                     </div>
                     <div class="col-12 col-md">

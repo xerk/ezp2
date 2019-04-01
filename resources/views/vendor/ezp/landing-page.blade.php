@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="section_heading new_arrivals">
-                    <h5>Brands</h5>
+                    <h5>{{__('Brands')}}</h5>
                 </div>
             </div>
         </div>
@@ -20,8 +20,7 @@
                     <div class="single_arrivals_slide">
                         <a href="{{ route('shop', [ 'company' => $item->id ]) }}" class="product_image">
                             <!-- Product Image -->
-                            <img class="normal_img" src="{{ asset('storage/'. $item->image)}}" alt="">
-                            <img class="hover_img" src="{{ asset('storage/'. $item->image)}}" alt="">
+                            <img class="normal_img" width="128" src="{{ asset('storage/'. $item->image)}}" alt="">
 
                             <!-- Product Badge -->
                             <div class="product_badge">
@@ -42,8 +41,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="popular_section_heading mb-50 text-center">
-                    <h5>POPULAR Cards</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <h5>{{__('POPULAR Cards')}}</h5>
                 </div>
             </div>
         </div>
@@ -86,7 +84,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="popular_section_heading mb-30">
-                    <h5>Popular Brands</h5>
+                    <h5>{{__('Popular Brands')}}</h5>
                 </div>
             </div>
             <div class="col-12">

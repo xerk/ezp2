@@ -71,9 +71,9 @@
                                                 src="{{ asset('img/bg-img/user.jpg') }}" alt=""></a>
                                         <!-- User Meta Dropdown Area Start -->
                                         <ul class="user-meta-dropdown">
-                                            <li class="user-title"><span>Hello,</span> {{ Auth::user()->name }}</li>
-                                            <li><a href="profile.html">My Profile</a></li>
-                                            <li><a href="order-list.html">Orders List</a></li>
+                                            <li class="user-title"><span>{{__('Hello')}},</span> {{ Auth::user()->name }}</li>
+                                            <li><a href="profile.html">{{__('My Profile')}}</a></li>
+                                            <li><a href="order-list.html">{{__('Orders List')}}</a></li>
                                             {{-- <li><a href="wishlist.html">Wishlist</a></li> --}}
                                             <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-sign-out" aria-hidden="true" ></i>
                                                 {{ __('Logout') }}</a>
@@ -111,8 +111,8 @@
 <style>
 .img-logo {
     position: absolute;
-    top: 0;
+    top: 12px;
     left: 0;
-    width: 128px;
+    width: 64px;
 }
 </style>

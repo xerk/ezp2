@@ -8,8 +8,8 @@
         <div class="row h-100 align-items-center">
             <div class="col-12">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Checkout</li>
+                    <li class="breadcrumb-item"><a href="index.html">{{__('Home')}}</a></li>
+                    <li class="breadcrumb-item active">{{__('Checkout')}}</li>
                 </ol>
             </div>
         </div>
@@ -38,16 +38,16 @@
         <div class="row">
             <div class="col-12">
                 <div class="order_complated_area clearfix">
-                    <h5>Thank You For Your Order.</h5>
-                    <p>You will receive an email of your order details</p>
-                    <p class="orderid">Your Order id # <b class="text-danger">{{ $order->id }}</b></p>
-                    <p><span class="text-danger">Please keep your order id</span></p>
+                    <h5>{{__('Thank You For Your Order')}}</h5>
+                    <p>{{__('You will receive an email of your order details')}}</p>
+                    <p class="orderid">{{__('Your Order id')}} # <b class="text-danger">{{ $order->id }}</b></p>
+                    <p><span class="text-danger">{{__('Please keep your order id')}}</span></p>
                 </div>
             </div>
 
             <div class="col-12">
                 <div class="checkout_pagination mt-50">
-                    <a href="{{ route('shop') }}" class="btn bigshop-btn">Go Back Shop</a>
+                    <a href="{{ route('shop') }}" class="btn bigshop-btn">{{__('Go Back Shop')}}</a>
                 </div>
             </div>
         </div>

@@ -7,8 +7,8 @@
             <span><i class="ti-check" aria-hidden="true"></i></span>
         </div>
         <div class="feature_content">
-            <h6>FREE SHIPPING</h6>
-            <p>For orders above $100</p>
+            <h6>{{__('FREE SHIPPING')}}</h6>
+            {{-- <p>For orders above $100</p> --}}
         </div>
     </div>
     <!-- Single Feature Area -->
@@ -18,8 +18,8 @@
             <span><i class="ti-check" aria-hidden="true"></i></span>
         </div>
         <div class="feature_content">
-            <h6>Customer Care</h6>
-            <p>24/7 Friendly Support</p>
+            <h6>{{__('Customer Care')}}</h6>
+            <p>{{__('24/7 Friendly Support')}}</p>
         </div>
     </div>
     <!-- Single Feature Area -->
@@ -29,8 +29,8 @@
             <span><i class="ti-check" aria-hidden="true"></i></span>
         </div>
         <div class="feature_content">
-            <h6>Happy Returns</h6>
-            <p>7 Days free Returns</p>
+            <h6>{{__('Happy Returns')}}</h6>
+            <p>{{__('7 Days free Returns')}}</p>
         </div>
     </div>
     <!-- Single Feature Area -->
@@ -40,8 +40,8 @@
             <span><i class="ti-check" aria-hidden="true"></i></span>
         </div>
         <div class="feature_content">
-            <h6>100% Money Back</h6>
-            <p>If product is damaged</p>
+            <h6>{{__('100% Money Back')}}</h6>
+            <p>{{__('If product is damaged')}}</p>
         </div>
     </div>
 </section>
@@ -53,7 +53,7 @@
             <div class="col-12 col-md-6 col-lg">
                 <div class="single_footer_area">
                     <div class="footer_heading mb-30">
-                        <h6>About us</h6>
+                        <h6>{{__('About us')}}</h6>
                     </div>
                     <div class="footer_content">
                         <p>Bigshop is international fashion &amp; accessories online shop. We provide 100% quality
