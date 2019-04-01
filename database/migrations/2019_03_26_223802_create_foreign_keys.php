@@ -13,11 +13,6 @@ class CreateForeignKeys extends Migration {
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('users', function(Blueprint $table) {
-			$table->foreign('user_type_id')->references('id')->on('user_types')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
 		Schema::table('locations', function(Blueprint $table) {
 			$table->foreign('user_id')->references('id')->on('users')
 						->onDelete('cascade')

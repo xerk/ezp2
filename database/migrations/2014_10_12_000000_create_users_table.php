@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('address')->nullable();
 			$table->integer('city_id')->unsigned()->index()->nullable();
-			$table->integer('user_type_id')->unsigned()->index()->nullable();
+			$table->integer('user_type')->unsigned()->index()->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

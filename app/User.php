@@ -6,16 +6,15 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use TCG\Voyager\Models\User as VoyagerUser;
 
-class User extends Authenticatable
+class User extends VoyagerUser
 {
 
-    use Notifiable;
+    use Notifiable, SoftDeletes;
 
     protected $table = 'users';
     public $timestamps = true;
-
-    use SoftDeletes;
 
     protected $dates = ['deleted_at'];
 
@@ -25,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'address', 'city_id', 'user_type_id', 'phone'
+        'name', 'email', 'password', 'address', 'city_id', 'user_type', 'phone'
     ];
 
     /**
@@ -44,11 +43,6 @@ class User extends Authenticatable
     public function isSuperAdmin()
     {
         return $this->hasRole('admin');
-    }
-
-    public function user_type()
-    {
-        return $this->belongsTo('App\UserType', 'user_type_id');
     }
 
     public function location()
