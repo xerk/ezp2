@@ -85,7 +85,7 @@
 <section class="shop_grid_area section_padding_100_70">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-3">
+            <div class="col-3 col-md-3">
                 <div class="shop_sidebar_area">
                     <div class="widget catagory mb-30">
                         <h6 class="widget-title">Product Categories</h6>
@@ -113,7 +113,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-9">
+            <div class="col-9 col-md-9">
                 <div class="shop_grid_product_area">
                     <div class="shop_top_sidebar_area mb-30">
                         <div class="view_area d-inline-block">
@@ -125,7 +125,7 @@
                     </div>
                     <div class="row">
                         @foreach ($products as $product)
-                        <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="col-6 col-sm-6 col-lg-4">
                             <div class="single_product_area mb-30">
                                 <div class="single_arrivals_slide">
                                     <div class="product_image">

@@ -50,7 +50,7 @@
 
         <div class="row">
             @foreach (App\Product::where('featured', true)->take(8)->inRandomOrder()->get() as $item)
-                <div class="col-12 col-md-6 col-lg-3">
+                <div class="col-6 col-md-6 col-lg-3">
                     <div class="single_popular_item">
                         <div class="product_image">
                             <!-- Product Image -->
