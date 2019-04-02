@@ -96,5 +96,6 @@
     "Search for Products, Brands or Category": "البحث عن المنتجات أو العلامات التجارية أو الفئة",
     "Thank you! Your order has been successfully accepted!": "شكرا لكم! تم قبول طلبك بنجاح!",
     "Item is already in your cart!": "العنصر موجود بالفعل في سلة التسوق الخاصة بك!",
-    "Item was added to your cart!": "تمت إضافة بند إلى عربة التسوق!"
+    "Item was added to your cart!": "تمت إضافة بند إلى عربة التسوق!",
+    "You already have an account with this email address. Please <a href='/login'>login</a> to continue.": "لديك بالفعل حساب بعنوان البريد الإلكتروني هذا. يرجى <a href='/login'>تسجيل الدخول</a> للمتابعة."
 }
