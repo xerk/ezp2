@@ -61,4 +61,9 @@ class User extends VoyagerUser
         return $this->hasOne('App\SupplierBalance', 'user_id');
     }
 
+    public function orders()
+    {
+        return $this->hasMany('App\Order', 'user_id');
+    }
+
 }

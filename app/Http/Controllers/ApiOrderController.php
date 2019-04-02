@@ -2,31 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Company;
-use App\Product;
+use App\User;
 use Illuminate\Http\Request;
 
-class ApiProductController extends Controller
+class ApiOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function user()
     {
-        $per_page = $request->per_page ? $request->per_page : 10;
-
-        if ($request->company != '') {
-            $products = Product::where('company_id', $request->company)->paginate($per_page);
-        } else {
-            $products = Product::paginate($per_page);
-        }
-        $companies = Company::withCount('Products')->get();
+        $user = User::with('orders')->get();
 
         return response()->json([
-            'products' => $products,
-            'companies' => $companies
+            'user' => $user
         ]);
     }
 
