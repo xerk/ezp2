@@ -93,6 +93,7 @@ return [
     'numeric'              => 'يجب على :attribute أن يكون رقمًا.',
     'present'              => 'يجب تقديم :attribute.',
     'regex'                => 'صيغة :attribute .غير صحيحة.',
+    'password_regex'                => 'يجب أن يحتوي تنسيق :attribute على أحرف كبيرة واحدة أو صغيرة على الأقل ورقم واحد على الأقل',
     'required'             => ':attribute مطلوب.',
     'required_if'          => ':attribute مطلوب في حال ما إذا كان :other يساوي :value.',
     'required_unless'      => ':attribute مطلوب في حال ما لم يكن :other يساوي :values.',

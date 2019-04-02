@@ -123,7 +123,7 @@
                     <div class="single_arrivals_slide">
                         <a href="{{ route('shop', [ 'company' => $item->id ]) }}" class="product_image">
                             <!-- Product Image -->
-                            <img class="normal_img" width="128" src="{{ asset('storage/'. $item->image)}}" alt="">
+                            <img class="normal_img" width="100%" src="{{ asset('storage/'. $item->image)}}" alt="">
 
                             <!-- Product Badge -->
                             <div class="product_badge">

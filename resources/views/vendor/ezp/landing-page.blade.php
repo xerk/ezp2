@@ -76,7 +76,7 @@
                     <div class="single_popular_item">
                         <div class="product_image">
                             <!-- Product Image -->
-                            <img class="first_img" src="{{ asset('storage/'.$item->image) }}" alt="">
+                            <img class="first_img" width="100%" src="{{ asset('storage/'.$item->image) }}" alt="">
 
                             <!-- Add to cart -->
                             <div class="product_add_to_cart">
