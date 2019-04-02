@@ -1,5 +1,5 @@
 @extends('vendor.ezp.layout')
-@section('title', __('Homepage'))
+@section('title', __('Confirmation'))
 @section('content')
 
 <!-- ***** Breadcumb Area Start ***** -->

@@ -1,5 +1,5 @@
 @extends('vendor.ezp.layout')
-@section('title', __('Homepage'))
+@section('title', __('Cart'))
 @section('content')
     <!-- ***** Breadcumb Area Start ***** -->
     <div class="breadcumb_area bg-img background-overlay-white" style="background-image: url(img/bg-img/breadcumb.jpg);">
