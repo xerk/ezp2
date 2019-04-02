@@ -102,7 +102,7 @@
                                 <div class="col-md-12 mb-3">
                                     <label for="street_address">{{__('Street address')}}</label>
                                     <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="address" id="street_address"
-                                        placeholder="{{__('Street Address')}}" value="">
+                                        placeholder="{{__('Street Address')}}" value="{{ old('phone') }}">
                                     @if ($errors->has('address'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('address') }}</strong>
