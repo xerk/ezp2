@@ -15,7 +15,6 @@ class ApiProductController extends Controller
      */
     public function index(Request $request)
     {
-        dd($request->all());
         if ($request->company != '') {
             $products = Product::where('company_id', $request->company)->paginate(10);
         } else {
