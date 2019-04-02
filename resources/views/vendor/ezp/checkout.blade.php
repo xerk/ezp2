@@ -1,5 +1,5 @@
 @extends('vendor.ezp.layout')
-@section('title', __('Homepage'))
+@section('title', __('Checkout'))
 @section('content')
 <div id="checkout">
     <!-- ***** Breadcumb Area Start ***** -->
@@ -19,13 +19,37 @@
     <!-- ***** Breadcumb Area End ***** -->
 
     <div class="checkout_steps_area  justify-content-center">
-        <a :class="{'active': billing, 'complated': review}" href="checkout-2.html"><i class="ti-check"></i> {{__('Billing')}}</a>
-        <a :class="{'active': review}" href="checkout-5.html"><i class="ti-check"></i> {{__('Review')}}</a>
+        <a :class="{'active': billing, 'complated': review}" href="#"><i class="ti-check"></i> {{__('Billing')}}</a>
+        <a :class="{'active': review}" href="#"><i class="ti-check"></i> {{__('Review')}}</a>
     </div>
 
     <!-- <<<<<<<<<<<<<<<<<<<< Checkout Area Start >>>>>>>>>>>>>>>>>>>> -->
     <div class="checkout_area section_padding_100">
         <div class="container">
+            @if (session()->has('success_message'))
+                <div class="spacer"></div>
+                <div class="alert alert-success text-right" dir="rtl">
+                    {{ session()->get('success_message') }}
+                </div>
+            @endif
+
+            @if (session()->has('warning_message'))
+                <div class="spacer"></div>
+                <div class="alert alert-warning text-right" dir="rtl">
+                    {{ session()->get('warning_message') }}
+                </div>
+            @endif
+
+            @if(count($errors) > 0)
+                <div class="spacer"></div>
+                <div class="alert alert-danger text-right" dir="rtl">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{!! $error !!}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="row" v-show="billing">
                 <div class="col-12">
                     <div class="checkout_details_area mt-50 clearfix">
@@ -34,31 +58,56 @@
                             @csrf
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="first_name">{{__('Name')}}</label>
-                                    <input type="text" class="form-control" id="first_name" name="billing_name" placeholder="Full Name"
-                                        value="" required>
+                                    <label for="name">{{__('Name')}}</label>
+                                    <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" name="name" value="{{ old('name') }}" placeholder="Full Name"
+                                        srequired>
+                                    @if ($errors->has('name'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="email_address">{{__('Email Address')}}</label>
-                                    <input type="email" class="form-control" name="billing_email" id="email_address"
-                                        placeholder="{{__('Email Address')}}" value="">
+                                    <input type="email" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="email" id="email_address"
+                                        placeholder="{{__('Email Address')}}" value="{{ old('email') }}">
+                                    @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="phone_number">{{__('Phone Number')}}</label>
-                                    <input type="number" class="form-control" id="phone_number" name="billing_phone" placeholder="{{__('Phone Number')}}" min="0" value="">
+                                    <input type="number" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" id="phone_number" name="phone" placeholder="{{__('Phone Number')}}" min="0" value="{{ old('phone') }}">
+                                    @if ($errors->has('phone'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="city">{{__('City')}}</label>
-                                    <select class="custom-select d-block w-100" name="city_id" id="city">
+                                    <select class="custom-select d-block w-100" name="city" id="city">
                                         @foreach (App\City::all() as $item)
                                             <option value="{{$item->id}}">{{$item->name}}</option>
                                         @endforeach
                                     </select>
+                                    @if ($errors->has('city'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label for="street_address">{{__('Street address')}}</label>
-                                    <input type="text" class="form-control" name="billing_address" id="street_address"
+                                    <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="address" id="street_address"
                                         placeholder="{{__('Street Address')}}" value="">
+                                    @if ($errors->has('address'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                                 {{-- <div class="col-md-12">
                                 <label for="order-notes">Order Notes</label>

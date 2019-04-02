@@ -37,7 +37,7 @@
 :: 24.0 Compare Area CSS
 :: 25.0 404 Area CSS
 :: 26.0 Maintenence Mood Area CSS
-:: 27.0 Coming Soon Area CSS 
+:: 27.0 Coming Soon Area CSS
 :: 28.0 Contact Area CSS
 :: 29.0 FAQ Area CSS
 :: 30.0 About Us Area CSS
@@ -76,7 +76,7 @@
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Droid Arabic Kufi', 'Open Sans', sans-serif;
     font-weight: 400;
 }
 
@@ -89,7 +89,7 @@ h6 {
     color: #3a3a3a;
     margin: 0 0 15px;
     line-height: 1.2;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Droid Arabic Kufi', 'Open Sans', sans-serif;
     font-weight: 400;
 }
 
@@ -97,7 +97,7 @@ p {
     color: #3a3a3a;
     font-size: 1em;
     line-height: 1.5;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Droid Arabic Kufi', 'Open Sans', sans-serif;
     font-weight: 400;
 }
 
@@ -113,7 +113,7 @@ a:focus {
     text-decoration: none;
     outline: none;
     color: #3a3a3a;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'DroidArabicKufiRegular', 'Open Sans', sans-serif;
     font-weight: 400;
 }
 
@@ -834,13 +834,13 @@ img {
     height: 50px;
     padding: 15px;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 13px;
 }
 
 .nav-dropdown > li > a {
     color: #1a1a1a;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 13px;
     padding: 10px 20px;
 }
@@ -3943,7 +3943,7 @@ img {
 }
 
 /* --------------------------
-:: 27.0 Coming Soon Area CSS 
+:: 27.0 Coming Soon Area CSS
 -------------------------- */
 
 .comingsoon_area .coming_soon_timer li {

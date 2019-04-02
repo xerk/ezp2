@@ -31,11 +31,11 @@ class CartController extends Controller
             return $cartItem->id === $product->id;
         });
         if ($duplicates->isNotEmpty()) {
-            return redirect()->back()->with('success_message', 'Item is already in your cart!');
+            return redirect()->back()->with('warning_message', __('Item is already in your cart!'));
         }
         Cart::add($product->id, $product->name, 1, $product->price)
             ->associate('App\Product');
-        return redirect()->back()->with('success_message', 'Item was added to your cart!');
+        return redirect()->back()->with('success_message', __('Item was added to your cart!'));
     }
 
     /**

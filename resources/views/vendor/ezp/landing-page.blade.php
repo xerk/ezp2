@@ -1,10 +1,34 @@
 @extends('vendor.ezp.layout')
-@section('title', __('Homepage'))
+@section('title', __('Home'))
 @section('content')
 @include('vendor.ezp.partials.slider')
 <!-- ***** New Arrivals Area Start ***** -->
 <section class="new_arrivals_area section_padding_50 clearfix">
     <div class="container">
+        @if (session()->has('success_message'))
+            <div class="spacer"></div>
+            <div class="alert alert-success text-right" dir="rtl">
+                {{ session()->get('success_message') }}
+            </div>
+        @endif
+
+        @if (session()->has('warning_message'))
+            <div class="spacer"></div>
+            <div class="alert alert-warning text-right" dir="rtl">
+                {{ session()->get('warning_message') }}
+            </div>
+        @endif
+
+        @if(count($errors) > 0)
+            <div class="spacer"></div>
+            <div class="alert alert-danger text-right" dir="rtl">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{!! $error !!}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         {{-- <div class="row">
             <div class="col-12">
                 <div class="section_heading new_arrivals">

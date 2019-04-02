@@ -67,7 +67,7 @@
             items: 4,
             margin: 30,
             loop: true,
-            nav: true,
+            nav: false,
             navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
             dots: false,
             autoplay: true,
@@ -222,13 +222,13 @@
     }
 
     // ScrollUp Active Code
-    if ($.fn.scrollUp) {
-        $.scrollUp({
-            scrollSpeed: 1000,
-            easingType: 'easeInOutQuart',
-            scrollText: '<i class="ti-angle-up" aria-hidden="true"></i>'
-        });
-    }
+    // if ($.fn.scrollUp) {
+    //     $.scrollUp({
+    //         scrollSpeed: 1000,
+    //         easingType: 'easeInOutQuart',
+    //         scrollText: '<i class="ti-angle-up" aria-hidden="true"></i>'
+    //     });
+    // }
 
     // Counterup Active Code
     if ($.fn.counterUp) {

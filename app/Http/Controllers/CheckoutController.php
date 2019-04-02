@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\OrderProduct;
 use Illuminate\Http\Request;
+use App\Http\Requests\CheckoutRequest;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CheckoutController extends Controller
@@ -42,7 +43,7 @@ class CheckoutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CheckoutRequest $request)
     {
         // Check race condition when there are less items available to purchase
         try {
@@ -52,7 +53,7 @@ class CheckoutController extends Controller
             // decrease the quantities of all the products in the cart
             Cart::instance('default')->destroy();
             return redirect()->route('confirmation.index', [$order])->with([
-                'success_message' => 'Thank you! Your order has been successfully accepted!']);
+                'success_message' => __('Thank you! Your order has been successfully accepted!')]);
         } catch (CardErrorException $e) {
             $this->addToOrdersTables($request, $e->getMessage());
             return back()->withErrors('Error! ' . $e->getMessage());
@@ -64,11 +65,11 @@ class CheckoutController extends Controller
         // Insert into orders table
         $order = Order::create([
             'user_id' => auth()->user() ? auth()->user()->id : null,
-            'billing_email' => $request->billing_email,
-            'billing_name' => $request->billing_name,
-            'billing_address' => $request->billing_address,
-            'city_id' => $request->city_id,
-            'billing_phone' => $request->billing_phone,
+            'billing_email' => $request->email,
+            'billing_name' => $request->name,
+            'billing_address' => $request->address,
+            'city_id' => $request->city,
+            'billing_phone' => $request->phone,
             'billing_subtotal' => Cart::total(),
             'billing_tax' => Cart::tax(),
             'billing_total' => Cart::total(),

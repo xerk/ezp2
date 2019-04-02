@@ -21,19 +21,28 @@
 <div class="checkout_area section_padding_100">
     <div class="container">
         @if (session()->has('success_message'))
-        <div class="alert alert-success">
-            {{ session()->get('success_message') }}
-        </div>
+            <div class="spacer"></div>
+            <div class="alert alert-success text-right" dir="rtl">
+                {{ session()->get('success_message') }}
+            </div>
+        @endif
+
+        @if (session()->has('warning_message'))
+            <div class="spacer"></div>
+            <div class="alert alert-warning text-right" dir="rtl">
+                {{ session()->get('warning_message') }}
+            </div>
         @endif
 
         @if(count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+            <div class="spacer"></div>
+            <div class="alert alert-danger text-right" dir="rtl">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{!! $error !!}</li>
+                    @endforeach
+                </ul>
+            </div>
         @endif
         <div class="row">
             <div class="col-12">
