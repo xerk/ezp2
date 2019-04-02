@@ -68,9 +68,12 @@
                                     @endif
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="email_address">{{__('Email Address')}}</label>
-                                    <input type="email" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="email" id="email_address"
-                                        placeholder="{{__('Email Address')}}" value="{{ old('email') }}">
+                                    <label for="email">{{__('Email Address')}}</label>
+                                    @if (auth()->user())
+                                        <input type="email" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{__('Email Address')}}" id="email" name="email" value="{{ auth()->user()->email }}" readonly>
+                                    @else
+                                        <input type="email" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" id="email" name="email" value="{{ old('email') }}" placeholder="{{__('Email Address')}}" required>
+                                    @endif
                                     @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
