@@ -46,12 +46,10 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'job' => $request->job,
             'phone' => $request->phone,
             'city_id' => $request->city_id,
-            'region_id' => $request->region_id,
-            'address_line_1'=> $request->address_line_1,
-            'address_line_2' => $request->address_line_2,
+            'address'=> $request->address,
+            'user_type' => $request->user_type,
         ]);
     }
     public function logout()
