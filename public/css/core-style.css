@@ -1390,7 +1390,7 @@ img {
     line-height: 30px;
     position: absolute;
     text-align: center;
-    width: 50%;
+    width: 100%;
     -webkit-transition-duration: 300ms;
     transition-duration: 300ms;
 }

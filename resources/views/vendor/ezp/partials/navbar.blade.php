@@ -90,7 +90,7 @@
                                 </div>
                             </div>
                             <!-- Main Menus Wrapper -->
-                            <div class="nav-menus-wrapper">
+                            <div class="nav-menus-wrapper" dir="rtl">
                                 <ul class="nav-menu nav-menu-centered">
                                     @foreach($items as $menu_item)
                                     @if ($menu_item->link() === '/login')

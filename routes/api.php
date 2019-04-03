@@ -18,7 +18,6 @@ Route::middleware('auth:api')->group(function () {
         return $request->user()->with('orders')->first();
     });
     Route::post('/logout', 'AuthController@logout');
-    Route::get('/user-orders', 'ApiOrderController@user');
     Route::post('/order', 'ApiOrderController@order');
 });
 

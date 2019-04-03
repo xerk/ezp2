@@ -138,7 +138,7 @@
     </div>
 </section>
 <!-- ***** New Arrivals Area End ***** -->
-<section class="shop_grid_area">
+<section class="shop_grid_area" dir="rtl">
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-3 d-none d-sm-block d-lg-block col-md-3">
@@ -160,7 +160,7 @@
                                     onclick='window.location.assign("{{route("shop", ["company" => $company->id])}}")'
                                     {{ (route("shop", ["company" => $company->id]) == Request::fullUrl() ? 'checked' : '') }}
                                     class="custom-control-input" name="company" id="{{$company->name}}">
-                                <label class="custom-control-label" for="{{$company->name}}">{{$company->name}} <span
+                                <label dir="ltr" class="custom-control-label" for="{{$company->name}}">{{$company->name}} <span
                                         class="text-muted">({{$company->products_count}})</span></label>
                             </div>
                             @endforeach
@@ -190,24 +190,32 @@
                                         <img class="hover_img" src="{{ asset('storage/'. $product->image) }}" alt="">
 
                                         <!-- Product Badge -->
-                                        <div class="product_badge">
-                                            <span class="badge-new">{{__('New')}}</span>
-                                        </div>
+                                        @if ($product->featured)
+                                            <div class="product_badge">
+                                                <span class="badge-new">{{__('Featured')}}</span>
+                                            </div>
+                                        @endif
                                         <!-- Add to cart -->
+                                        @if (Auth::user()->user_type == 3)
                                         <div class="product_add_to_cart">
-                                            <a href="{{ route('cart.store', $product) }}"
-                                            onclick="event.preventDefault();
-                                                          document.getElementById('cart-form-{{$product->id}}').submit();"><i class="ti-shopping-cart" aria-hidden="true"></i> Add to
-                                                Cart</a>
-                                        </div>
+                                                <a href="{{ route('cart.store', $product) }}"onclick="event.preventDefault();document.getElementById('cart-form-{{$product->id}}').submit();"><i class="ti-shopping-cart" aria-hidden="true"></i> {{__('Buy as Distributor')}}</a>
+                                            </div>
                                             <form id="cart-form-{{$product->id}}" action="{{ route('cart.store', $product) }}" method="POST" style="display: none;">
                                                     @csrf
                                             </form>
-                                        <!-- Quick View -->
+                                        @else
+                                            <div class="product_add_to_cart">
+                                                <a href="{{ route('cart.store', $product) }}"onclick="event.preventDefault();document.getElementById('cart-form-{{$product->id}}').submit();"><i class="ti-shopping-cart" aria-hidden="true"></i> {{__('Add to Cart')}}</a>
+                                            </div>
+                                            <form id="cart-form-{{$product->id}}" action="{{ route('cart.store', $product) }}" method="POST" style="display: none;">
+                                                    @csrf
+                                            </form>
+                                        @endif
+                                        {{-- <!-- Quick View -->
                                         <div class="product_quick_view">
                                             <a href="#" data-toggle="modal" data-target="#product-{{ $product->id }}"><i class="ti-eye"
                                                     aria-hidden="true"></i> {{__('Quick View')}}</a>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     <!-- Product Description -->
                                     <div class="product_description">

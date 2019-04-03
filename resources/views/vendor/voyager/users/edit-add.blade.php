@@ -75,7 +75,7 @@
                             @endphp
                             <div class="form-group">
                                 <label for="user-type">{{ __('User Type') }}</label>
-                                <select class="form-control select2" id="user-type" name="user-type">
+                                <select class="form-control select2" id="user-type" name="user_type">
                                     <option value="1" {{ (1 == $selected_user_type ? 'selected' : '') }}>{{ __('Admin') }}</option>
                                     <option value="2" {{ (2 == $selected_user_type ? 'selected' : '') }}>{{ __('Normal User') }}</option>
                                     <option value="3" {{ (3 == $selected_user_type ? 'selected' : '') }}>{{ __('Distributor') }}</option>
