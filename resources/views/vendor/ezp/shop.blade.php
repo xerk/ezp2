@@ -196,13 +196,22 @@
                                             </div>
                                         @endif
                                         <!-- Add to cart -->
-                                        @if (Auth::user()->user_type == 3)
-                                        <div class="product_add_to_cart">
-                                                <a href="{{ route('cart.store', $product) }}"onclick="event.preventDefault();document.getElementById('cart-form-{{$product->id}}').submit();"><i class="ti-shopping-cart" aria-hidden="true"></i> {{__('Buy as Distributor')}}</a>
-                                            </div>
-                                            <form id="cart-form-{{$product->id}}" action="{{ route('cart.store', $product) }}" method="POST" style="display: none;">
-                                                    @csrf
-                                            </form>
+                                        @auth
+                                            @if (Auth::user()->user_type == 3)
+                                            <div class="product_add_to_cart">
+                                                    <a href="{{ route('cart.store', $product) }}"onclick="event.preventDefault();document.getElementById('cart-form-{{$product->id}}').submit();"><i class="ti-shopping-cart" aria-hidden="true"></i> {{__('Buy as Distributor')}}</a>
+                                                </div>
+                                                <form id="cart-form-{{$product->id}}" action="{{ route('cart.store', $product) }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                </form>
+                                            @else
+                                                <div class="product_add_to_cart">
+                                                    <a href="{{ route('cart.store', $product) }}"onclick="event.preventDefault();document.getElementById('cart-form-{{$product->id}}').submit();"><i class="ti-shopping-cart" aria-hidden="true"></i> {{__('Add to Cart')}}</a>
+                                                </div>
+                                                <form id="cart-form-{{$product->id}}" action="{{ route('cart.store', $product) }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                </form>
+                                            @endif
                                         @else
                                             <div class="product_add_to_cart">
                                                 <a href="{{ route('cart.store', $product) }}"onclick="event.preventDefault();document.getElementById('cart-form-{{$product->id}}').submit();"><i class="ti-shopping-cart" aria-hidden="true"></i> {{__('Add to Cart')}}</a>
@@ -210,7 +219,7 @@
                                             <form id="cart-form-{{$product->id}}" action="{{ route('cart.store', $product) }}" method="POST" style="display: none;">
                                                     @csrf
                                             </form>
-                                        @endif
+                                        @endauth
                                         {{-- <!-- Quick View -->
                                         <div class="product_quick_view">
                                             <a href="#" data-toggle="modal" data-target="#product-{{ $product->id }}"><i class="ti-eye"
