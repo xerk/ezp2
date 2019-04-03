@@ -59,7 +59,7 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="name">{{__('Name')}}</label>
-                                    <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" name="name" value="{{ old('name') }}" placeholder="Full Name"
+                                    <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" name="name" value="{{ old('name') }}" placeholder="{{__('Full Name')}}"
                                         srequired>
                                     @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
@@ -105,7 +105,7 @@
                                 <div class="col-md-12 mb-3">
                                     <label for="street_address">{{__('Street address')}}</label>
                                     <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="address" id="street_address"
-                                        placeholder="{{__('Street Address')}}" value="{{ old('address') }}">
+                                        placeholder="{{__('Address')}}" value="{{ old('address') }}">
                                     @if ($errors->has('address'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('address') }}</strong>

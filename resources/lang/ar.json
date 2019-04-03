@@ -104,5 +104,6 @@
     "Add to Cart": "أضف إلى السلة",
     "Quantity must be between 1 and 5.": "يجب أن تكون الكمية بين 1 و 5.",
     "Quantity was updated successfully!": "تم تحديث الكمية بنجاح!",
-    "You are not a distributor or not authorized": "أنت لست موزعًا أو غير مصرح لك بذلك"
+    "You are not a distributor or not authorized": "أنت لست موزعًا أو غير مصرح لك بذلك",
+    "Full Name": "الأسم كامل"
 }
