@@ -108,10 +108,27 @@
                             <a href="{{ route('shop') }}" class="btn bigshop-btn"><i class="fa fa-undo"
                                     aria-hidden="true"></i> {{__('Back to Shopping')}}</a>
                         </div>
-                        <div class="update-checkout w-50 text-right">
-                            {{-- <a href="#" class="btn bigshop-btn">Update Cart</a> --}}
-                            <a href="{{ route('checkout.index') }}" class="btn bigshop-btn">{{__('Checkout')}}</a>
-                        </div>
+                        @auth
+                            @if (Auth::user()->user_type == 3)
+                                <div class="update-checkout w-50 text-right">
+                                    {{-- <a href="#" class="btn bigshop-btn">Update Cart</a> --}}
+                                    <a href="#" onclick="event.preventDefault();document.getElementById('confirm-form').submit();" class="btn bigshop-btn">{{__('Confirm')}}</a>
+                                    <form action="{{ route('checkout.distributor') }}" style="display:none" method="POST" id="confirm-form">
+                                        @csrf
+                                    </form>
+                                </div>
+                            @else
+                                <div class="update-checkout w-50 text-right">
+                                    {{-- <a href="#" class="btn bigshop-btn">Update Cart</a> --}}
+                                    <a href="{{ route('checkout.index') }}" class="btn bigshop-btn">{{__('Checkout')}}</a>
+                                </div>
+                            @endif
+                        @else
+                            <div class="update-checkout w-50 text-right">
+                                {{-- <a href="#" class="btn bigshop-btn">Update Cart</a> --}}
+                                <a href="{{ route('checkout.index') }}" class="btn bigshop-btn">{{__('Checkout')}}</a>
+                            </div>
+                        @endauth
                     @else
                         <div class="update-checkout w-100 text-center">
                             <h1>{{__('No item in your cart')}}</h1>

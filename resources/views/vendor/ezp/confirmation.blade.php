@@ -47,7 +47,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="order_complated_area clearfix text-right">
-                    <h5>{{__('Thank You For Your Order')}}</h5>
+                    <h5>{{__('Thank You For Your Order')}}, @auth <span class="text-primary">{{strtok(trim(Auth::user()->name),  ' ')}}</span> @endauth</h5>
                     <p>{{__('You will receive an email of your order details')}}</p>
                     <p class="orderid">{{__('Your Order id')}} # <b class="text-danger">{{ $order->id }}</b></p>
                     <p><span class="text-danger">{{__('Please keep your order id')}}</span></p>

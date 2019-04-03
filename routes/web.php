@@ -31,6 +31,7 @@ Route::get('/welcome', function () {
 
 Route::get('checkout', 'CheckoutController@index')->name('checkout.index');
 Route::post('checkout', 'CheckoutController@store')->name('checkout.store');
+Route::post('checkout-distributor', 'CheckoutController@distributor')->name('checkout.distributor');
 
 Route::get('confirmation/{order}', 'ConfirmationController@index')->name('confirmation.index');
 

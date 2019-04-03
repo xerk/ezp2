@@ -183,7 +183,7 @@
                 <div class="col-12">
                     <div class="checkout_pagination mt-50">
                         <a href="#" @click.prevent="hidereview" class="btn bigshop-btn">{{__('Go Back')}}</a>
-                        <a href="checkout-complate.html" onclick="event.preventDefault();document.getElementById('billing-form').submit();" class="btn bigshop-btn">{{__('Confirm')}}</a>
+                        <a href="#" onclick="event.preventDefault();document.getElementById('billing-form').submit();" class="btn bigshop-btn">{{__('Confirm')}}</a>
                     </div>
                 </div>
             </div>

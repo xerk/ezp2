@@ -74,7 +74,7 @@
     "Go Back": "الرجوع للخلف",
     "Confirm": "تأكيد الطلب",
     "Thank You For Your Order": "شكرا لطلبك",
-    "You will receive an email of your order details": "سوف تتلقى رسالة بريد إلكتروني من تفاصيل طلبك",
+    "You will receive an email of your order details": "سوف تتلقى رسالة علي البريد الإلكتروني بتفاصيل طلبك",
     "Your Order id": "رقم الطلب الخاص بك",
     "Please keep your order id": "يرجى الحفاظ على رقم طلبك الخاص بك",
     "Go Back Shop": "الرجوع إلي المتجر",
@@ -101,5 +101,8 @@
     "Confirmation": "رسالة التأكيد",
     "Featured": "ميميز",
     "Buy as Distributor": "شراء كموزع",
-    "Add to Cart": "أضف إلى السلة"
+    "Add to Cart": "أضف إلى السلة",
+    "Quantity must be between 1 and 5.": "يجب أن تكون الكمية بين 1 و 5.",
+    "Quantity was updated successfully!": "تم تحديث الكمية بنجاح!",
+    "You are not a distributor or not authorized": "أنت لست موزعًا أو غير مصرح لك بذلك"
 }

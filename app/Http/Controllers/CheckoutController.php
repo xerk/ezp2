@@ -87,6 +87,46 @@ class CheckoutController extends Controller
         return $order;
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function distributor(Request $request)
+    {
+        $user = auth()->user();
+        if ($user && $user->user_type == 3) {
+            // Insert into orders table
+            $order = Order::create([
+                'user_id' => $user->id,
+                'user_type' => $user->user_type,
+                'billing_email' => $user->email,
+                'billing_name' => $user->name,
+                'billing_address' => $user->address,
+                'city_id' => $user->city_id,
+                'billing_phone' => $user->phone,
+                'billing_subtotal' => Cart::total(),
+                'billing_tax' => Cart::tax(),
+                'billing_total' => Cart::total(),
+                'payment_gateway' => 1,
+                'error' => '',
+            ]);
+            // Insert into order_product table
+            foreach (Cart::content() as $item) {
+                OrderProduct::create([
+                    'order_id' => $order->id,
+                    'product_id' => $item->model->id,
+                    'quantity' => $item->qty,
+                ]);
+            }
+        } else {
+            return redirect()->back()->with(['warning_message' => __('You are not a distributor or not authorized')]);
+        }
+        Cart::instance('default')->destroy();
+        return redirect()->route('confirmation.index', [$order])->with(['success_message' => __('Thank you! Your order has been successfully accepted!')]);
+    }
+
 
     /**
      * Display the specified resource.
