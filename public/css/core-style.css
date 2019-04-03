@@ -2555,17 +2555,16 @@ img {
     bottom: auto;
     color: #fff;
     display: block;
-    font-size: 17px;
+    font-size: 14px;
     height: 30px;
     left: auto;
     line-height: 30px;
     position: absolute;
-    right: -32px;
     text-align: center;
-    top: 105px;
+    bottom: -30px;
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
-    width: 30px;
+    width: 100%;
     -webkit-transition-delay: 200ms;
     transition-delay: 200ms;
 }
@@ -2597,7 +2596,7 @@ img {
 .home-2.best_rated_onsale_top_sellares .single_top_sellers:hover .top_seller_image .product_wishlist > a,
 .home-2.best_rated_onsale_top_sellares .single_top_sellers:hover .top_seller_image .product_compare > a,
 .home-2.best_rated_onsale_top_sellares .single_top_sellers:hover .top_seller_image .product_add_to_cart > a {
-    right: 0;
+    bottom: 0;
 }
 
 .home-2.best_rated_onsale_top_sellares .top_seller_image {
