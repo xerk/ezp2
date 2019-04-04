@@ -2,7 +2,7 @@
 @section('title', __('Login'))
 @section('content')
 <!-- ***** Login Area Start ***** -->
-<div class="bigshop_reg_log_area bg-img section_padding_100" style="background-image: url(img/bg-img/login.jpg);">
+<div class="bigshop_reg_log_area bg-img section_padding_100" style="background-image: url({{asset('img/bg-img/login.jpg')}});">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">

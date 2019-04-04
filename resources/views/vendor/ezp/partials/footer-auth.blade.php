@@ -28,6 +28,6 @@
         <!-- Bootstrap js -->
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <!-- Plugins js -->
-        <script src="{{ asset('js/plugins.js"></') }}script>
+        <script src="{{ asset('js/plugins.js"></') }}"></script>
         <!-- Active js -->
-        <script src="{{ asset('js/active.js"></') }}script>
+        <script src="{{ asset('js/active.js"></') }}"></script>
