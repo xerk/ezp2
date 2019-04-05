@@ -82,7 +82,6 @@ class LoginController extends Controller
     public function handleProviderCallback($provider)
     {
         $providerUser = Socialite::driver($provider)->user();
-        dd($providerUser);
         $user = User::where('provider_id', $providerUser->getId())->first();
         $userTrashed = User::onlyTrashed()->where('provider_id', $providerUser->getId())->first();
         if (!$userTrashed) {
