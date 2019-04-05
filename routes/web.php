@@ -24,6 +24,7 @@ Route::get('/map', function () {
     $config['zoom'] = '14';
     $config['map_height'] = '98vh';
     $config['scrollwheel'] = false;
+    $config['directions'] = true;
 
     GMaps::initialize($config);
 
@@ -38,7 +39,10 @@ Route::get('/map', function () {
     $marker['position'] = '29.995498, 31.184804';
     $marker['infowindow_content'] = 'EZP Comapny';
     GMaps::add_marker($marker);
+
+
     $map = GMaps::create_map();
+
     return view('welcome')->with('map', $map);
 })->name('map.index');
 
