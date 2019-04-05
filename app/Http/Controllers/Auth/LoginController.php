@@ -69,9 +69,9 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function redirectToProvider($provider)
+    public function redirectToProvider()
     {
-        return Socialite::driver($provider)->redirect();
+        return Socialite::driver('facebook')->redirect();
     }
 
     /**
@@ -79,19 +79,19 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback($provider)
+    public function handleProviderCallback()
     {
-        $userProvider = Socialite::driver($provider)->user();
+        $facebookUser = Socialite::driver('facebook')->user();
 
-        $user = User::where('provider_id', $userProvider->getId())->first();
+        $user = User::where('provider_id', $facebookUser->getId())->first();
 
         if (!$user) {
             // Create the user
             $user = User::create([
-                'email' => $userProvider->getEmail(),
-                'name' => $userProvider->getName(),
-                'provider_id' => $userProvider->getId(),
-                'provider' => $userProvider,
+                'email' => $facebookUser->getEmail(),
+                'name' => $facebookUser->getName(),
+                'provider_id' => $facebookUser->getId(),
+                'provider' => 'facebook',
             ]);
         }
         // Login the user
