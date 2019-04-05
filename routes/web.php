@@ -18,13 +18,26 @@ Route::get('/', function () {
     return view('vendor.ezp.landing-page');
 })->name('landingPage');
 
-Route::get('/welcome', function () {
-    $config['center'] = 'Giza, Egypt';
+Route::get('/map', function () {
+    $config = array();
+    $config['center'] = '30.013056, 31.208853';
     $config['zoom'] = '14';
-    $config['map_height'] = '500px';
+    $config['map_height'] = '98vh';
     $config['scrollwheel'] = false;
 
     GMaps::initialize($config);
+
+    $marker['position'] = '30.012524, 31.207955';
+    $marker['infowindow_content'] = 'Phrinta';
+    GMaps::add_marker($marker);
+
+    $marker['position'] = '30.007168, 31.218177';
+    $marker['infowindow_content'] = 'Motawer';
+    GMaps::add_marker($marker);
+
+    $marker['position'] = '29.995498, 31.184804';
+    $marker['infowindow_content'] = 'EZP Comapny';
+    GMaps::add_marker($marker);
     $map = GMaps::create_map();
     return view('welcome')->with('map', $map);
 });
