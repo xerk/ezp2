@@ -1,8 +1,12 @@
 <?php
 namespace App\Http\Controllers\Auth;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
 class LoginController extends Controller
 {
     /*
@@ -58,5 +62,42 @@ class LoginController extends Controller
     public function redirectTo()
     {
         return str_replace(url('/'), '', session()->get('previousUrl', '/'));
+    }
+
+    /**
+     * Redirect the user to the facebook authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function redirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    /**
+     * Obtain the user information from facebook.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback($provider)
+    {
+        $userProvider = Socialite::driver($provider)->user();
+
+        $user = User::where('provider_id', $userProvider->getId())->first();
+
+        if (!$user) {
+            // Create the user
+            $user = User::create([
+                'email' => $userProvider->getEmail(),
+                'name' => $userProvider->getName(),
+                'provider_id' => $userProvider->getId(),
+                'provider' => $userProvider,
+            ]);
+        }
+        // Login the user
+        Auth::login($user, true);
+        // $user->token;
+
+        return redirect($this->redirectTo);
     }
 }

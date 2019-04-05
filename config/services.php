@@ -48,5 +48,14 @@ return [
         'client_id' => env('PASSPORT_CLIENT_ID'),
         'client_secret' => env('PASSPORT_CLIENT_SECRET'),
     ],
-
+    'facebook' => [
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => env('FACEBOOK_CALLBACK'),
+    ],
+    'twitter' => [
+        'client_id' => env('TWITTER_CLIENT_ID'),
+        'client_secret' => env('TWITTER_CLIENT_SECRET'),
+        'redirect' => env('TWITTER_CALLBACK'),
+    ],
 ];

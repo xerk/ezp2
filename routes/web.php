@@ -25,9 +25,10 @@ Route::get('/map', function () {
     $config['map_height'] = '98vh';
     $config['scrollwheel'] = false;
     $config['directions'] = true;
+    $config['directionsDraggable'] = true;
 
     GMaps::initialize($config);
-
+    $marker = array();
     $marker['position'] = '30.012524, 31.207955';
     $marker['infowindow_content'] = 'Phrinta';
     GMaps::add_marker($marker);
@@ -62,7 +63,8 @@ Route::get('/shop', 'ProductController@index')->name('shop');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider')->name('provider.login');
+Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

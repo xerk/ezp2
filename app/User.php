@@ -25,7 +25,7 @@ class User extends VoyagerUser
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'address', 'city_id', 'user_type', 'phone'
+        'name', 'email', 'password', 'address', 'city_id', 'user_type', 'phone', 'provider_id', 'provider'
     ];
 
     /**
