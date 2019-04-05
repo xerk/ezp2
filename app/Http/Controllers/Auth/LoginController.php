@@ -97,7 +97,7 @@ class LoginController extends Controller
             }
         } else {
             session()->flash('errors', collect([__('You have been blocked, so contact with the support to know why')]));
-            return response()->json(['success' => false], 400);
+            return redirect()->back()->response()->json(['success' => false], 400);
         }
         // Login the user
         Auth::login($user, true);
