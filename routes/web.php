@@ -63,9 +63,8 @@ Route::get('/shop', 'ProductController@index')->name('shop');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider')->name('provider.login');
-Route::get('login/facebook', 'Auth\LoginController@redirectToProvider')->name('provider.login');
-Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

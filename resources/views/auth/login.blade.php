@@ -4,12 +4,36 @@
 <!-- ***** Login Area Start ***** -->
 <div class="bigshop_reg_log_area bg-img section_padding_100" style="background-image: url({{asset('img/bg-img/login.jpg')}});">
     <div class="container">
+            @if (session()->has('success_message'))
+            <div class="spacer"></div>
+            <div class="alert alert-success text-right" dir="rtl">
+                {{ session()->get('success_message') }}
+            </div>
+        @endif
+
+        @if (session()->has('warning_message'))
+            <div class="spacer"></div>
+            <div class="alert alert-warning text-right" dir="rtl">
+                {{ session()->get('warning_message') }}
+            </div>
+        @endif
+
+        @if(count($errors) > 0)
+            <div class="spacer"></div>
+            <div class="alert alert-danger text-right" dir="rtl">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{!! $error !!}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
                 <div class="login_form">
                     <!-- sign in with social site -->
                     <div class="signin_with_social">
-                        <a href="{{ route('provider.login') }}" class="facebook-logo"><i class="fa fa-facebook"></i>Sign in with Facebook</a>
+                        <a href="{{ route('provider.login', 'facebook') }}" class="facebook-logo"><i class="fa fa-facebook"></i>Sign in with Facebook</a>
                         {{-- <a href="#" class="twitter-logo"><i class="fa fa-twitter"></i>Sign in with Twitter</a> --}}
                     </div>
                     <!-- sign in manual form -->

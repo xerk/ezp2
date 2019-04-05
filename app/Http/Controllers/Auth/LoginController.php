@@ -69,9 +69,9 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function redirectToProvider()
+    public function redirectToProvider($provider)
     {
-        return Socialite::driver('facebook')->redirect();
+        return Socialite::driver($provider)->redirect();
     }
 
     /**
@@ -79,20 +79,25 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback($provider)
     {
-        $facebookUser = Socialite::driver('facebook')->user();
+        $providerUser = Socialite::driver($provider)->user();
 
-        $user = User::withTrashed()->where('provider_id', $getId())->first();
-
-        if (!$user) {
-            // Create the user
-            $user = User::create([
-                'email' => $facebookUser->getEmail(),
-                'name' => $facebookUser->getName(),
-                'provider_id' => $facebookUser->getId(),
-                'provider' => 'facebook',
-            ]);
+        $user = User::where('provider_id', $providerUser->getId())->first();
+        $userTrashed = User::onlyTrashed()->where('provider_id', $providerUser->getId())->first();
+        if (!$userTrashed) {
+            if (!$user) {
+                // Create the user
+                $user = User::create([
+                    'email' => $providerUser->getEmail(),
+                    'name' => $providerUser->getName(),
+                    'provider_id' => $providerUser->getId(),
+                    'provider' => 'facebook',
+                ]);
+            }
+        } else {
+            session()->flash('errors', collect([__('You have been blocked, so contact with the support to know why')]));
+            return response()->json(['success' => false], 400);
         }
         // Login the user
         Auth::login($user, true);
