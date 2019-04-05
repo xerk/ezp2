@@ -40,7 +40,7 @@ Route::get('/map', function () {
     GMaps::add_marker($marker);
     $map = GMaps::create_map();
     return view('welcome')->with('map', $map);
-});
+})->name('map.index');
 
 Route::get('checkout', 'CheckoutController@index')->name('checkout.index');
 Route::post('checkout', 'CheckoutController@store')->name('checkout.store');
