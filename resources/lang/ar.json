@@ -106,5 +106,15 @@
     "Quantity was updated successfully!": "تم تحديث الكمية بنجاح!",
     "You are not a distributor or not authorized": "أنت لست موزعًا أو غير مصرح لك بذلك",
     "Full Name": "الأسم كامل",
-    "You have been blocked, so contact with the support to know why": "لقد تم حظرك ، لذلك اتصل بالدعم لمعرفة السبب"
+    "You have been blocked, so contact with the support to know why": "لقد تم حظرك ، لذلك اتصل بالدعم لمعرفة السبب",
+    "Profile updated successfully!": "تم تحديث الملف الشخصي بنجاح!",
+    "Profile (and password) updated successfully!": "تم تحديث الملف الشخصي (وكلمة المرور) بنجاح!",
+    "If you dont want to change a password, please leave blank.": "إذا كنت لا تريد تغيير كلمة المرور ، فالرجاء تركها فارغة.",
+    "Create Password": "إنشاء كلمة مرور",
+    "Update Information": "تحديث المعلومات",
+    "Order ID": "رقم بالطلب",
+    "Date": "التاريخ",
+    "Items": "المنتاجات",
+    "Status": "الحالة",
+    "Pin Code": "الرقم السري"
 }

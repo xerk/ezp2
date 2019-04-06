@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\OrderProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CheckoutRequest;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -17,6 +18,10 @@ class CheckoutController extends Controller
      */
     public function index()
     {
+        if (Auth::user()->user_type == 3) {
+            return redirect()->route('landingPage');
+        }
+
         if (Cart::instance('default')->count() == 0) {
             return redirect()->route('shop');
         }

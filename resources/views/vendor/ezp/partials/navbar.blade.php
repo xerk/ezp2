@@ -57,7 +57,9 @@
                                             <li class="total">
                                                 <span>{{__('Total')}}: {{ Cart::total() }}</span>
                                                 <a href="{{ route('cart.index') }}" class="btn btn-sm btn-cart">{{__('Cart')}}</a>
-                                                <a href="{{ route('checkout.index') }}" class="btn btn-sm btn-checkout">{{__('Checkout')}}</a>
+                                                @if (Auth::user()->user_type != 3)
+                                                    <a href="{{ route('checkout.index') }}" class="btn btn-sm btn-checkout">{{__('Checkout')}}</a>
+                                                @endif
                                             </li>
                                             @else
                                             <li class="total">
@@ -75,8 +77,8 @@
                                         <!-- User Meta Dropdown Area Start -->
                                         <ul class="user-meta-dropdown">
                                             <li class="user-title"><span>{{__('Hello')}},</span> {{ strtok(trim(Auth::user()->name),  ' ') }}</li>
-                                            <li class="item-menu"><a href="profile.html">{{__('My Profile')}}</a></li>
-                                            <li class="item-menu"><a href="order-list.html">{{__('Orders List')}}</a></li>
+                                            <li class="item-menu"><a href="{{ route('users.edit')}}">{{__('My Profile')}}</a></li>
+                                            <li class="item-menu"><a href="{{route('orders.index')}}">{{__('Orders List')}}</a></li>
                                             {{-- <li><a href="wishlist.html">Wishlist</a></li> --}}
                                             <li class="item-menu logout"><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-sign-out" aria-hidden="true" ></i>
                                                 {{ __('Logout') }}</a>
