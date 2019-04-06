@@ -34,7 +34,7 @@
                     <!-- sign in with social site -->
                     <div class="signin_with_social">
                         <a href="{{ route('provider.login', 'facebook') }}" class="facebook-logo"><i class="fa fa-facebook"></i>Sign in with Facebook</a>
-                        {{-- <a href="{{ route('provider.login', 'twitter') }}" class="twitter-logo"><i class="fa fa-twitter"></i>Sign in with Twitter</a> --}}
+                        <a href="{{ route('provider.login', 'twitter') }}" class="twitter-logo"><i class="fa fa-twitter"></i>Sign in with Twitter</a>
                     </div>
                     <!-- sign in manual form -->
                     <div class="login_manual_form">
