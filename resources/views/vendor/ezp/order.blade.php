@@ -50,6 +50,22 @@
                                 <td>{{__('Total')}}</td>
                                 <td>{{ $order->billing_total }}</td>
                             </tr>
+                            <tr>
+                                    <td>{{__('Status')}}</td>
+                                    <td>
+                                        @if ($order->status == 1)
+                                            <span class="text-primary">{{__('Pending')}}</span>
+                                        @elseif ($order->status === 2)
+                                           <span class="text-success"> {{__('Complated')}}</span>
+                                        @else
+                                            <span class="text-danger">{{__('Cancelled')}}</span>
+                                        @endif
+                                    </td>
+                                </tr>
+                            <tr>
+                                <td>{{__('Comment')}}</td>
+                                <td>{{ $order->comment }}</td>
+                            </tr>
                         </tbody>
                     </table>
 
@@ -65,7 +81,7 @@
                             </div>
                             <div>{{__('Price')}}: {{ $product->price }}</div>
                             <div>{{__('Quantity')}}: {{ $product->pivot->quantity }}</div>
-                            <div>{{__('Pin Code')}}:</div>
+                            <div>{{__('Pin Code')}}: {{ $product->pivot->pin_code }}</div>
                         </div>
                     </div>
                     @endforeach

@@ -54,8 +54,16 @@
                                         <h5>{{$order->products_count}}</h5>
                                     </td>
                                     <td class="price"><span>{{$order->billing_total}} L.E</span></td>
-                                    <td>Complated</td>
-                                    <td><a href="{{ route('orders.show', $order->id) }}">Details</a></td>
+                                    <td>
+                                        @if ($order->status == 1)
+                                            <span class="text-primary">{{__('Pending')}}</span>
+                                        @elseif ($order->status === 2)
+                                           <span class="text-success"> {{__('Complated')}}</span>
+                                        @else
+                                            <span class="text-danger">{{__('Cancelled')}}</span>
+                                        @endif
+                                    </td>
+                                    <td><a href="{{ route('orders.show', $order->id) }}">{{__('Details')}}</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>

@@ -80,6 +80,7 @@ class CheckoutController extends Controller
             'billing_total' => Cart::total(),
             'payment_gateway' => 1,
             'error' => $error,
+            'status' => 1,
         ]);
         // Insert into order_product table
         foreach (Cart::content() as $item) {

@@ -15,7 +15,7 @@ class OrderProduct extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
-        'order_id', 'product_id', 'quantity'
+        'order_id', 'product_id', 'quantity', 'pin_code'
     ];
 
     public function product()
