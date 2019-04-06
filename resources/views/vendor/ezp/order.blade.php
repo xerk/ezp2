@@ -44,7 +44,7 @@
                             </tr>
                             <tr>
                                 <td>{{__('City')}}</td>
-                                <td>{{ $order->billing_city }}</td>
+                                <td>{{ $order->city->name }}</td>
                             </tr>
                             <tr>
                                 <td>{{__('Total')}}</td>
