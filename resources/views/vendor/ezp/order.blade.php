@@ -31,7 +31,7 @@
         <div class="row">
 
             <div class="col-12 col-md-9" dir="rtl">
-                <div class="order-products">
+                <div class="order-products pb-3">
                     <table class="table">
                         <tbody>
                             <tr>
