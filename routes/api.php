@@ -20,5 +20,7 @@ Route::middleware('auth:api')->group(function () {
 });
 
 Route::post('/login', 'AuthController@login');
-Route::post('/register', 'AuthController@register');
+// Route::post('/register', 'AuthController@register');
 Route::get('/products', 'ApiProductController@index');
+Route::get('/companies', 'ApiHomeControllr@index');
+Route::get('/featured', 'ApiHomeControllr@featured');

@@ -22,12 +22,8 @@ class ApiProductController extends Controller
         } else {
             $products = Product::paginate($per_page);
         }
-        $companies = Company::withCount('Products')->get();
 
-        return response()->json([
-            'products' => $products,
-            'companies' => $companies
-        ]);
+        return response()->json($products);
     }
 
     /**
