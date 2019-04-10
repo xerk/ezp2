@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->group(function () {
     Route::get('/user', function (Request $request) {
          $user = $request->user();
-         return App\User::with('orders')->find($user);
+         return App\User::with('orders')->where('id', $user->id);
     });
     Route::post('/logout', 'AuthController@logout');
     Route::post('/order', 'ApiOrderController@order');
