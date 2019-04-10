@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Company;
-use App\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class ProductController extends Controller
+class ApiUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,26 +13,8 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->company != '') {
-            $product = Product::where('company_id', $request->company)->paginate(15);
-        } else {
-            $product = Product::paginate(15);
-        }
-        $company = Company::withCount('Products')->get();
-        return view('vendor.ezp.shop')->with([
-            'products' => $product,
-            'companies'   => $company
-        ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $user = $request->user();
+         return App\User::with('orders')->where('id', $user->id)->first();
     }
 
     /**
