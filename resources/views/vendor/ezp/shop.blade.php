@@ -211,6 +211,9 @@
                                                 <form id="cart-form-{{$product->id}}" action="{{ route('cart.store', $product) }}" method="POST" style="display: none;">
                                                         @csrf
                                                 </form>
+                                                <div class="product_quick_view">
+                                                    <a href="#" data-toggle="modal" data-target="#quickview"><i class="ti-eye" aria-hidden="true"></i> Quick View</a>
+                                                </div>
                                             @endif
                                         @else
                                             <div class="product_add_to_cart">
@@ -219,6 +222,9 @@
                                             <form id="cart-form-{{$product->id}}" action="{{ route('cart.store', $product) }}" method="POST" style="display: none;">
                                                     @csrf
                                             </form>
+                                            <div class="product_quick_view">
+                                                <a href="{{ route('map.index') }}">{{__('Distributor locations')}} <i class="ti-eye" aria-hidden="true"></i> </a>
+                                            </div>
                                         @endauth
                                         {{-- <!-- Quick View -->
                                         <div class="product_quick_view">
@@ -239,12 +245,12 @@
                     </div>
                 </div>
 
-                <div class="shop_pagination_area">
+                <div class="shop_pagination_area pb-5">
                     <nav aria-label="Page navigation">
                         {{$products->links('vendor.pagination.bootstrap-4')}}
                     </nav>
                 </div>
-
+                
             </div>
         </div>
     </div>

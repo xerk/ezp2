@@ -83,10 +83,14 @@
                                                 <!-- Product Image -->
                                                 <img width="100%" src="{{ asset('storage/'.$item->image) }}" alt="">
 
+                                                <!-- Wishlist -->
+                                                <div class="product_wishlist">
+                                                    <a href="{{ route('map.index') }}" target="_blank"><i class="ti-eye"></i> {{ __('Distributor locations') }}</a>
+                                                </div>
                                                 <!-- Add to cart -->
                                                 @auth
                                                 @if (Auth::user()->user_type == 3)
-                                                <div class="product_add_to_cart">
+                                                <div class="product_add_to_cart-d">
                                                     <a href="{{ route('cart.store', $item) }}"
                                                         onclick="event.preventDefault();document.getElementById('cart-form-{{$item->id}}').submit();"><i
                                                             class="ti-shopping-cart" aria-hidden="true"></i>
@@ -123,11 +127,6 @@
                                                     @csrf
                                                 </form>
                                                 @endauth
-                                                <form id="cart-form-{{$item->id}}"
-                                                    action="{{ route('cart.store', $item) }}" method="POST"
-                                                    style="display: none;">
-                                                    @csrf
-                                                </form>
                                             </div>
                                             <!-- Product Description -->
                                             <div class="top_seller_desc">
