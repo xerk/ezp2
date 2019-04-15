@@ -11,7 +11,7 @@
                     <div class="footer_content">
                         <p>{!! setting('site.description') !!}</p>
                         <p>{{__('Phone')}}: {{setting('site.phone_number_1')}}</p>
-                        <p>{{__('Phone')}}: {{setting('site.phone_number_1')}}</p>
+                        <p>{{__('Phone')}}: {{setting('site.phone_number_2')}}</p>
                         <p>{{__('Email Address')}}: {{setting('site.email')}}</p>
                     </div>
                     <div class="footer_social_area mt-15">
