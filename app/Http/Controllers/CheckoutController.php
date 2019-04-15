@@ -18,9 +18,9 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->user_type == 3) {
-            return redirect()->route('landingPage');
-        }
+        // if (Auth::user()->user_type == 3) {
+        //     return redirect()->route('landingPage');
+        // }
 
         if (Cart::instance('default')->count() == 0) {
             return redirect()->route('shop');
