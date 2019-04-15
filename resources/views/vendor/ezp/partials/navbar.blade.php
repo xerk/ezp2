@@ -57,9 +57,14 @@
                                             <li class="total">
                                                 <span>{{__('Total')}}: {{ Cart::total() }}</span>
                                                 <a href="{{ route('cart.index') }}" class="btn btn-sm btn-cart">{{__('Cart')}}</a>
-                                                @if (Auth::user()->user_type != 3)
+                                                @auth
+                                                    @if (Auth::user()->user_type != 3)
+                                                        <a href="{{ route('checkout.index') }}" class="btn btn-sm btn-checkout">{{__('Checkout')}}</a>
+                                                    @endif
+                                                @else
                                                     <a href="{{ route('checkout.index') }}" class="btn btn-sm btn-checkout">{{__('Checkout')}}</a>
-                                                @endif
+                                                @endauth
+                                                
                                             </li>
                                             @else
                                             <li class="total">
