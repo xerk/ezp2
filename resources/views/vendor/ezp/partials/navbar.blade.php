@@ -82,6 +82,9 @@
                                         <!-- User Meta Dropdown Area Start -->
                                         <ul class="user-meta-dropdown">
                                             <li class="user-title"><span>{{__('Hello')}},</span> {{ strtok(trim(Auth::user()->name),  ' ') }}</li>
+                                            @if (Voyager::can('browse_admin'))
+                                            <li class="item-menu"><a href="{{ route('users.edit')}}">{{__('Dashboard')}}</a></li>
+                                            @endif
                                             <li class="item-menu"><a href="{{ route('users.edit')}}">{{__('My Profile')}}</a></li>
                                             <li class="item-menu"><a href="{{route('orders.index')}}">{{__('Orders List')}}</a></li>
                                             {{-- <li><a href="wishlist.html">Wishlist</a></li> --}}
