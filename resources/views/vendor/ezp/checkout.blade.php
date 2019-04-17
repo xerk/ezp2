@@ -53,10 +53,27 @@
             <div class="row" v-show="billing">
                 <div class="col-12">
                     <div class="checkout_details_area mt-10 clearfix">
+                        <div class="rwo col-md-12 mb-12 text-right">
+                            <div class="shortcodes_area">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="shortcodes_content">
+                                                <blockquote class="bigshop-blockquote br-10">
+                                                    <p class="">{{ __('Call Number') }}: <span class="text-info">{{setting('site.phone_number_1')}}, {{setting('site.phone_number_2')}}</span></p>
+                                                    <p class="my-2">{{ __('Etisalat cash Number') }}: <span class="text-primary">213456798</span></p>
+                                                    <p>{{ __('Vodafone cash Number') }}: <span class="text-primary">123456789</span></p>
+                                                </blockquote>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <h5>{{__('Billing Details')}}</h5>
                         <form action="{{ route('checkout.store') }}" method="POST" id="billing-form">
-                            @csrf
-                            <div class="row">
+                                @csrf
+                                <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="name">{{__('Name')}}</label>
                                     <input type="text"
