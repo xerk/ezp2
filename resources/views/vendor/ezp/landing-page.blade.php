@@ -85,12 +85,12 @@
 
                                                 <!-- Wishlist -->
                                                 <div class="product_wishlist">
-                                                    <a href="{{ route('map.index') }}" target="_blank"><i class="ti-eye"></i> {{ __('Distributor locations') }}</a>
+                                                    <a href="{{ route('map.index') }}" target="_blank"><i class="ti-location-pin"></i> {{ __('Distributor locations') }}</a>
                                                 </div>
                                                 <!-- Add to cart -->
                                                 @auth
                                                 @if (Auth::user()->user_type == 3)
-                                                <div class="product_add_to_cart-d">
+                                                <div class="product_add_to_cart">
                                                     <a href="{{ route('cart.store', $item) }}"
                                                         onclick="event.preventDefault();document.getElementById('cart-form-{{$item->id}}').submit();"><i
                                                             class="ti-shopping-cart" aria-hidden="true"></i>

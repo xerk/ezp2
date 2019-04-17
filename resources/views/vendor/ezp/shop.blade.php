@@ -223,7 +223,7 @@
                                                     @csrf
                                             </form>
                                             <div class="product_quick_view">
-                                                <a href="{{ route('map.index') }}">{{__('Distributor locations')}} <i class="ti-eye" aria-hidden="true"></i> </a>
+                                                <a href="{{ route('map.index') }}">{{__('Distributor locations')}} <i class="ti-location-pin" aria-hidden="true"></i> </a>
                                             </div>
                                         @endauth
                                         {{-- <!-- Quick View -->

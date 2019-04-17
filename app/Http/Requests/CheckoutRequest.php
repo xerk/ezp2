@@ -26,6 +26,7 @@ class CheckoutRequest extends FormRequest
             'address' => 'required',
             'city' => 'required',
             'phone' => 'required',
+            'payment_method' => 'required'
         ];
     }
     public function messages()

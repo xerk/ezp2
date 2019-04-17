@@ -122,5 +122,16 @@
     "Pending": "قيد الانتظار",
     "Complated": "تمت العملية",
     "Distributor locations": "أماكن الموزعين",
-    "Dashboard": "لوحة التحكم"
+    "Dashboard": "لوحة التحكم",
+    "Vodafone cash": "فودافون كاش",
+    "Etisalat cash": "اتصالات كاش",
+    "Fawery": "فوري",
+    "Payment method": "طريقة الدفع",
+    "Choose payment method": "أختار طريقة الدفع",
+    "Important notice, please call before making payment If you do not call to confirm the order, the payment currency will be canceled by fawery": "تنبيه هام، رجائي الأتصال قبل دفع المبلغ إذا لم تتصل لتأكيد الطلب سوف يتم إلغاء عملة الدفع من قبل فوري",
+    "Call Number": "رقم الأتصال",
+    "Vodafone cash Number": "رقم فودافون كاش",
+    "Shipping phone number": "رقم تلفون الشحن",
+    "Payment number": "رقم عملية الدفع"
+
 }

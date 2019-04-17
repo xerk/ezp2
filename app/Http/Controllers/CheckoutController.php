@@ -18,9 +18,11 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        // if (Auth::user()->user_type == 3) {
-        //     return redirect()->route('landingPage');
-        // }
+        if (Auth::check()) {
+            if (Auth::user()->user_type == 3) {
+                return redirect()->route('landingPage');
+            }
+        }
 
         if (Cart::instance('default')->count() == 0) {
             return redirect()->route('shop');
@@ -67,6 +69,13 @@ class CheckoutController extends Controller
 
     protected function addToOrdersTables($request, $error)
     {
+        if ($request->has('shipping_phone') || $request->has('payment_number')) {
+            $validatedData = $request->validate([
+                'shipping_phone' => 'required',
+                'payment_number' => 'required',
+            ]);
+        }
+
         // Insert into orders table
         $order = Order::create([
             'user_id' => auth()->user() ? auth()->user()->id : null,
@@ -78,7 +87,9 @@ class CheckoutController extends Controller
             'billing_subtotal' => Cart::total(),
             'billing_tax' => Cart::tax(),
             'billing_total' => Cart::total(),
-            'payment_gateway' => 1,
+            'payment_gateway' => $request->payment_method,
+            'shipping_phone' => $request->shipping_phone,
+            'payment_number' => $request->payment_number,
             'error' => $error,
             'status' => 1,
         ]);
