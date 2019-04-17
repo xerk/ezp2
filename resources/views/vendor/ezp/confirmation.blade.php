@@ -51,6 +51,24 @@
                     <p>{{__('You will receive an email of your order details')}}</p>
                     <p class="orderid">{{__('Your Order id')}} # <b class="text-danger">{{ $order->id }}</b></p>
                     <p><span class="text-danger">{{__('Please keep your order id')}}</span></p>
+                    @guest
+                    <div class="col-md-12 mb-12 text-right pt-5">
+                        <div class="shortcodes_area">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="shortcodes_content">
+                                            <blockquote class="bigshop-blockquote br-10">
+                                                <p class="">{{ __('Call Number') }}: <span class="text-info">{{setting('site.phone_number_1')}}, {{setting('site.phone_number_2')}}</span></p>
+                                                <p class="text-primary my-2">{{ __('You will receive a message containing your PIN code by text or email')}}</p>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endguest
                 </div>
             </div>
 
