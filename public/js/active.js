@@ -187,10 +187,18 @@
     // Cart & User Active Code
     $('#header-cart-btn').on('click', function () {
         $('body').toggleClass('cart-data-open');
+        $('body').removeClass('notification-data-open');
         $('body').removeClass('user-data-open');
     })
     $('#header-user-btn').on('click', function () {
         $('body').toggleClass('user-data-open');
+        $('body').removeClass('cart-data-open');
+        $('body').removeClass('notification-data-open');
+    })
+
+    $('#header-notification-btn').on('click', function () {
+        $('body').toggleClass('notification-data-open');
+        $('body').removeClass('user-data-open');
         $('body').removeClass('cart-data-open');
     })
 

@@ -132,7 +132,7 @@
                                             <div class="top_seller_desc">
                                                 <h5><a href="#">{{ $item->name }}</a></h5>
                                                 <p>{{ $item->company->name }}</p>
-                                                <h6>{{ $item->price }} <span>{{ $item->price }}</span></h6>
+                                                <h6>{{ $item->discount_price }} <span>{{ $item->price }}</span></h6>
                                             </div>
                                         </div>
                                     </div>

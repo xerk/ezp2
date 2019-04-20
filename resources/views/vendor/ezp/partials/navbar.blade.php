@@ -31,6 +31,20 @@
                                         <a href="wishlist.html"><i class="ti-heart"></i></a>
                                     </div> --}}
                                     <!-- Cart Area -->
+                                    <div class="notification">
+                                        <a href="#" id="header-notification-btn" target="_blank"><i class="material-icons">
+                                            notifications
+                                            </i>
+                                            <span class="cart_quantity">{{ Cart::instance('default')->count() }}</span>
+                                        </a>
+                                        <!-- Cart List Area Start -->
+                                        <ul class="notification-list">
+                                            <li class="total">
+                                                <span>{{__('No item in your cart')}}</span>
+                                                <a href="{{ route('shop') }}" class="btn btn-sm btn-checkout"><i class="fa fa-undo" aria-hidden="true"></i> {{__('Back to Shopping')}}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                     <div class="cart">
                                         <a href="#" id="header-cart-btn" target="_blank"><i class="material-icons">
                                             add_shopping_cart

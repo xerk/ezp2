@@ -236,7 +236,7 @@
                                     <div class="product_description">
                                         <p class="brand_name">Top</p>
                                         <h5><a href="#">{{ $product->name }}</a></h5>
-                                        <h6>{{ $product->price }} <span>{{ $product->price }}</span></h6>
+                                        <h6>{{ $product->discount_price }} <span>{{ $product->price }}</span></h6>
                                     </div>
                                 </div>
                             </div>
