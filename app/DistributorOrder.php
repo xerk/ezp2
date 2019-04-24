@@ -5,10 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class SupplierBalance extends Model 
-{
 
-    protected $table = 'supplier_balances';
+class DistributorOrder extends Model
+{
+    protected $table = 'distributor_orders';
     public $timestamps = true;
 
     use SoftDeletes;
@@ -21,12 +21,11 @@ class SupplierBalance extends Model
      * @var array
      */
     protected $fillable = [
-        'balance', 'debit', 'credit'
+        'user_id', 'pin_code', 'status', 'comment', 'product_id', 'price'
     ];
 
     public function user()
     {
         return $this->belongsTo('App\User', 'user_id');
     }
-
 }
