@@ -66,4 +66,15 @@ class User extends VoyagerUser
         return $this->hasMany('App\Order', 'user_id');
     }
 
+    /**
+     * Find the user instance for the given username.
+     *
+     * @param  string  $username
+     * @return \App\User
+     */
+    public function findForPassport($username)
+    {
+        return $this->where('email', $username)->where('user_type', 3)->first();
+    }
+
 }

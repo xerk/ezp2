@@ -20,7 +20,11 @@ class OrderController extends Controller
         $per_page = $request->per_page ? $request->per_page : 10;
 
         $user = $request->user();
-        return DistributorOrder::where('user_id', $user->id)->paginate($per_page);
+        if ($user->user_type == 3) {
+            return DistributorOrder::where('user_id', $user->id)->paginate($per_page);
+        } else {
+            return response()->json(['error' => __('You are not distributor!')]);
+        }
     }
 
     /**
@@ -30,29 +34,34 @@ class OrderController extends Controller
      */
     public function order(Request $request)
     {
-
-        if ($this->notEnoughCredit($request)) {
-            return response()->json(__('We are sorry we did not complete the process because there was not enough credit'), 401);
+        $user = $request->user();
+        if ($user->user_type == 3) {
+            if ($this->notEnoughCredit($request)) {
+                return response()->json(__('We are sorry we did not complete the process because there was not enough credit'), 401);
+            }
+    
+            $request->validate([
+                'user_id' => 'required',
+                'product_id' => 'required',
+                'price' => 'required',
+            ]);
+    
+            $order = DistributorOrder::create([
+                'user_id' => auth('api')->user()->id,
+                'product_id' => $request->product_id,
+                'price' => $request->price,
+                'status' => 1,
+            ]);
+    
+            $this->decreaseBalance($request);
+            
+    
+            // Check race condition when there are less items available to purchase
+            return response()->json(['order' => $order, 'success_message' => __('Thank you! Your order has been successfully accepted!')]);
+        } else {
+            return response()->json(['error' => __('You are not distributor!')]);
         }
 
-        $request->validate([
-            'user_id' => 'required',
-            'product_id' => 'required',
-            'price' => 'required',
-        ]);
-
-        $order = DistributorOrder::create([
-            'user_id' => auth('api')->user()->id,
-            'product_id' => $request->product_id,
-            'price' => $request->price,
-            'status' => 1,
-        ]);
-
-        $this->decreaseBalance($request);
-        
-
-        // Check race condition when there are less items available to purchase
-        return response()->json(['order' => $order, 'success_message' => __('Thank you! Your order has been successfully accepted!')]);
     }
 
     protected function decreaseBalance($request)
