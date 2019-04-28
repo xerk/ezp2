@@ -21,7 +21,8 @@ class ApiHomeControllr extends Controller
         } else {
             $company = Company::withCount('Products')->get();
         }
-        return response()->json($company, 200);
+        return response()->json([
+            'companies' => $company], 200);
     }
 
     /**
