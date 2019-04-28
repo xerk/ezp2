@@ -16,12 +16,16 @@ class ApiProductController extends Controller
     public function index(Request $request)
     {
         $per_page = $request->per_page ? $request->per_page : 10;
-
-        if ($request->company != '') {
+        if ($request->has('company')) {
             $products = Product::where('company_id', $request->company)->paginate($per_page);
         } else {
-            $products = Product::paginate($per_page);
+            return response()->json(['error' => 'Please send company params'], 401);
         }
+        // if ($request->company != '') {
+        //     $products = Product::where('company_id', $request->company)->paginate($per_page);
+        // } else {
+        //     $products = Product::paginate($per_page);
+        // }
 
         return response()->json($products);
     }
