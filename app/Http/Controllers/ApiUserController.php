@@ -15,6 +15,6 @@ class ApiUserController extends Controller
     {
         // App\User::with('orders')->where('id', $user->id)->first();
         $auth = $request->user();
-        return response()->json(['auth' => $auth], 200)
+        return response()->json(['auth' => $auth], 200);
     }
 }
