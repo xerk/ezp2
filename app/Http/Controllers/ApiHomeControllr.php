@@ -16,7 +16,12 @@ class ApiHomeControllr extends Controller
     public function index(Request $request)
     {
         $per_page = $request->per_page ? $request->per_page : 3;
-        return Company::withCount('Products')->paginate($per_page);
+        if ($request->has('per_page')) {
+            $company = Company::withCount('Products')->paginate($per_page);
+        } else {
+            $comapny = Company::withCount('Products')->get();
+        }
+        return response()->json($comapny, 200);
     }
 
     /**

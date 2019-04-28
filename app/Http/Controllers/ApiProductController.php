@@ -27,7 +27,7 @@ class ApiProductController extends Controller
         //     $products = Product::paginate($per_page);
         // }
 
-        return response()->json($products);
+        return response()->json($products, 200);
     }
 
     /**
