@@ -34,9 +34,10 @@ class ApiHomeControllr extends Controller
         $take_limit = $request->take_limit ? $request->take_limit : 9;
         $product = Product::where('featured', true)->take($take_limit)->inRandomOrder()->get();
         if (!$product->isEmpty()) {
-            return $product;
+            return response()->json(['products' => $product], 200);
         } else {
-            return Product::take($take_limit)->inRandomOrder()->get();
+            $product = Product::take($take_limit)->inRandomOrder()->get();
+            return response()->json(['products' => $product], 200);
         }
          
     }
