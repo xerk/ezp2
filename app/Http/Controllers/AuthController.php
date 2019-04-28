@@ -22,6 +22,7 @@ class AuthController extends Controller
                     'password' => $request->password,
                 ]
             ]);
+            dd($response);
             $body = $response->getBody();
             return response()->json(['login' => $response->json(), 'status', true]);
         } catch (\GuzzleHttp\Exception\BadResponseException $e) {
