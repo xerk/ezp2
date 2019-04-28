@@ -1,9 +1,9 @@
 <?php
 
+use App\User;
 use App\Notifications\PlaceOrder;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Notifications\Notification;
-
+use Illuminate\Support\Facades\Notification;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +20,6 @@ Route::get('/', function () {
     return view('vendor.ezp.landing-page');
 })->name('landingPage');
 
-Route::get('/notifi', function () {
-    $users = User::find(1);
-    // Notification::send($users, new PlaceOrder($invoice));
-});
 
 Route::get('/map', function () {
     $config = array();

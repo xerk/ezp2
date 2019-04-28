@@ -31,20 +31,35 @@
                                         <a href="wishlist.html"><i class="ti-heart"></i></a>
                                     </div> --}}
                                     <!-- Cart Area -->
-                                    <div class="notification">
-                                        <a href="#" id="header-notification-btn" target="_blank"><i class="material-icons">
-                                            notifications
-                                            </i>
-                                            <span class="cart_quantity">{{ Cart::instance('default')->count() }}</span>
-                                        </a>
-                                        <!-- Cart List Area Start -->
-                                        <ul class="notification-list">
-                                            <li class="total">
-                                                <span>{{__('No item in your cart')}}</span>
-                                                <a href="{{ route('shop') }}" class="btn btn-sm btn-checkout"><i class="fa fa-undo" aria-hidden="true"></i> {{__('Back to Shopping')}}</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    @auth
+                                        <div class="notification">
+                                            <a href="#" id="header-notification-btn" target="_blank"><i class="material-icons">
+                                                notifications
+                                                </i>
+                                                <span class="cart_quantity">{{ auth()->user()->unreadNotifications->count() }}</span>
+                                            </a>
+                                            <!-- Cart List Area Start -->
+                                            <ul class="notification-list">
+                                                @foreach (auth()->user()->unreadNotifications as $notification)
+                                                    <li style="background:lightgray">
+                                                        <a href="#" class="image"><img src="{{ asset('storage/'.$notification->data['image']) }}"
+                                                                class="cart-thumb" alt=""></a>
+                                                        <div class="cart-item-desc">
+                                                            <h6><a href="#">{{ $notification->data['name'] }}</a></h6>
+                                                            <p><span class="price">{{ $notification->data['price'] }} L.E</span></p>
+                                                        </div>
+                                                        <span class="dropdown-product-remove"><i class="icon-cross"></i></span>
+                                                    </li>
+                                                @endforeach
+                                                @foreach (auth()->user()->readNotifications as $notification)
+                                                    <li>
+                                                        <span><a href="#">{{ $notification->data['data'] }}</a></span>
+                                                        {{-- <a href="{{ route('shop') }}" class="btn btn-sm btn-checkout"><i class="fa fa-undo" aria-hidden="true"></i> {{__('Back to Shopping')}}</a> --}}
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>    
+                                        @endauth
                                     <div class="cart">
                                         <a href="#" id="header-cart-btn" target="_blank"><i class="material-icons">
                                             add_shopping_cart

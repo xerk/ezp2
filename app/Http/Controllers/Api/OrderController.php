@@ -23,7 +23,7 @@ class OrderController extends Controller
         if ($user->user_type == 3) {
             return DistributorOrder::where('user_id', $user->id)->paginate($per_page);
         } else {
-            return response()->json(['error' => __('You are not distributor!')]);
+            return response()->json(['error' => __('You are not distributor!'), 'status' => false]);
         }
     }
 
@@ -37,7 +37,7 @@ class OrderController extends Controller
         $user = $request->user();
         if ($user->user_type == 3) {
             if ($this->notEnoughCredit($request)) {
-                return response()->json(__('We are sorry we did not complete the process because there was not enough credit'), 401);
+                return response()->json(['error' => __('We are sorry we did not complete the process because there was not enough credit'), 'status' => false], 401);
             }
     
             $request->validate([
@@ -57,9 +57,9 @@ class OrderController extends Controller
             
     
             // Check race condition when there are less items available to purchase
-            return response()->json(['order' => $order, 'success_message' => __('Thank you! Your order has been successfully accepted!')]);
+            return response()->json(['order' => $order, 'success_message' => __('Thank you! Your order has been successfully accepted!'), 'status' => true]);
         } else {
-            return response()->json(['error' => __('You are not distributor!')]);
+            return response()->json(['error' => __('You are not distributor!'), 'status' => false]);
         }
 
     }

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Order;
 use App\OrderProduct;
 use Illuminate\Http\Request;
+use App\Notifications\PlaceOrder;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CheckoutRequest;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Notification;
 
 class CheckoutController extends Controller
 {
@@ -58,6 +61,8 @@ class CheckoutController extends Controller
             // dd($order);
             // Mail::send(new OrderPlaced($order));
             // decrease the quantities of all the products in the cart
+            
+
             Cart::instance('default')->destroy();
             return redirect()->route('confirmation.index', [$order])->with([
                 'success_message' => __('Thank you! Your order has been successfully accepted!')]);
@@ -100,6 +105,9 @@ class CheckoutController extends Controller
                 'product_id' => $item->model->id,
                 'quantity' => $item->qty,
             ]);
+            $price = Cart::total();
+            $users = User::where('user_type', 1)->get();
+            Notification::send($users, new PlaceOrder($price, $item->model));
         }
         return $order;
     }
@@ -136,6 +144,9 @@ class CheckoutController extends Controller
                     'product_id' => $item->model->id,
                     'quantity' => $item->qty,
                 ]);
+                $price = Cart::total();
+                $users = User::where('user_type', 1)->get();
+                Notification::send($users, new PlaceOrder($price, $item->model));
             }
         } else {
             return redirect()->back()->with(['warning_message' => __('You are not a distributor or not authorized')]);

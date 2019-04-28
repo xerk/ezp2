@@ -25,11 +25,11 @@ class AuthController extends Controller
             return $response->getBody();
         } catch (\GuzzleHttp\Exception\BadResponseException $e) {
             if ($e->getCode() === 400) {
-                return response()->json('Invalid Request. Please enter a username or a password.', $e->getCode());
+                return response()->json(['error' => 'Invalid Request. Please enter a username or a password.', 'status' => false, 'code' =>  $e->getCode()], $e->getCode());
             } else if ($e->getCode() === 401) {
-                return response()->json('Your credentials are incorrect. Please try again', $e->getCode());
+                return response()->json(['error' => 'Your credentials are incorrect. Please try again', 'status' => false, 'code' =>  $e->getCode()], $e->getCode());
             }
-            return response()->json('Something went wrong on the server.', $e->getCode());
+            return response()->json(['error' => 'Something went wrong on the server.', 'status' => false, 'code' =>  $e->getCode()], $e->getCode());
         }
     }
     public function register(Request $request)
@@ -57,6 +57,6 @@ class AuthController extends Controller
         auth()->user()->tokens->each(function ($token, $key) {
             $token->delete();
         });
-        return response()->json('Logged out successfully', 200);
+        return response()->json(['success' => 'Logged out successfully', 'status' => false, 'code' => 200], 200);
     }
 }
