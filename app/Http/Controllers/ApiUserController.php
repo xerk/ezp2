@@ -14,6 +14,7 @@ class ApiUserController extends Controller
     public function index(Request $request)
     {
         // App\User::with('orders')->where('id', $user->id)->first();
-        return  $user = $request->user();
+        $auth = $request->user();
+        return response()->json(['auth' => $auth], 200)
     }
 }
