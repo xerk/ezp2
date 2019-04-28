@@ -22,7 +22,7 @@ class AuthController extends Controller
                     'password' => $request->password,
                 ]
             ]);
-            $body = $response->getBody()->getContents();
+            $body = $response->getBody();
             return response()->json(['login' => $body, 'status', true]);
         } catch (\GuzzleHttp\Exception\BadResponseException $e) {
             if ($e->getCode() === 400) {
