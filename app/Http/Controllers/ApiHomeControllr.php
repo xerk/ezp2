@@ -19,9 +19,9 @@ class ApiHomeControllr extends Controller
         if ($request->has('per_page')) {
             $company = Company::withCount('Products')->paginate($per_page);
         } else {
-            $comapny = Company::withCount('Products')->get();
+            $company = Company::withCount('Products')->get();
         }
-        return response()->json($comapny, 200);
+        return response()->json($company, 200);
     }
 
     /**
