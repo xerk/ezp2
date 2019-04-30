@@ -17,6 +17,7 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/user', 'ApiUserController@index');
     Route::get('/my-balance', 'Api\BalanceController@index');
     Route::post('/order', 'Api\OrderController@order');
+    Route::post('/update-user', 'ApiUserController@update');
     Route::get('/my-order', 'Api\OrderController@index');
     Route::post('/logout', 'AuthController@logout');
 });
