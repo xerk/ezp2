@@ -57,7 +57,7 @@ class OrderController extends Controller
             
     
             // Check race condition when there are less items available to purchase
-            return response()->json(['order' => $order, 'success_message' => __('Thank you! Your order has been successfully accepted!'), 'status' => true]);
+            return response()->json(['order' => $order, 'balance' => $order->user->supplierBalance, 'success_message' => __('Thank you! Your order has been successfully accepted!'), 'status' => true]);
         } else {
             return response()->json(['error' => __('You are not distributor!'), 'status' => false]);
         }
