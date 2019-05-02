@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Company;
 use App\Product;
 use Illuminate\Http\Request;
+use TCG\Voyager\Models\Page;
+use TCG\Voyager\Models\Post;
 
 class ApiHomeControllr extends Controller
 {
@@ -42,4 +44,19 @@ class ApiHomeControllr extends Controller
          
     }
     
+
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function slider(Request $request)
+    {
+        $take_limit = $request->take_limit ? $request->take_limit : 9;
+        $slider = Post::select('id', 'title','image')->where('category_id', 3)->where('status', 'PUBLISHED')->get();
+
+        return response()->json(['slider' => $slider, 'status' => true], 200);
+    
+         
+    }
 }

@@ -22,9 +22,10 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/logout', 'AuthController@logout');
 });
 
-Route::post('/login', 'AuthController@login');
+Route::post('/login', 'Api\LoginController@login');
 // Route::post('/register', 'AuthController@register');
 Route::get('/products', 'ApiProductController@index');
 Route::get('/companies', 'ApiHomeControllr@index');
 Route::get('/featured', 'ApiHomeControllr@featured');
 Route::get('/support', 'Api\SupportController@index');
+Route::get('/slider', 'ApiHomeControllr@slider');
