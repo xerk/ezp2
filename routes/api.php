@@ -29,3 +29,4 @@ Route::get('/companies', 'ApiHomeControllr@index');
 Route::get('/featured', 'ApiHomeControllr@featured');
 Route::get('/support', 'Api\SupportController@index');
 Route::get('/slider', 'ApiHomeControllr@slider');
+Route::post('forgot/password', 'Api\ForgotPasswordController');
