@@ -31,10 +31,9 @@ class AuthServiceProvider extends ServiceProvider
         // Passport::routes();
 
         Auth::viaRequest('token', function ($request) {
+            // $token = $request->header('Authorization');
             if ($request->token) {
                 return User::where('api_token', $request->token)->first();
-            } else {
-                return response()->json(['error' => 'Please, Pass api token', 'status' => false], 401);
             }
         });
     }
