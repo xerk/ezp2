@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use TCG\Voyager\Models\User as VoyagerUser;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,7 +11,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends VoyagerUser
 {
 
-    use HasApiTokens, Notifiable, SoftDeletes;
+    use Notifiable, SoftDeletes;
 
     protected $table = 'users';
     public $timestamps = true;
@@ -25,7 +24,7 @@ class User extends VoyagerUser
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'address', 'city_id', 'user_type', 'phone', 'provider_id', 'provider', 'avatar'
+        'name', 'email', 'password', 'address', 'city_id', 'user_type', 'phone', 'provider_id', 'provider', 'avatar', 'api_token'
     ];
 
     /**
@@ -75,6 +74,14 @@ class User extends VoyagerUser
     public function findForPassport($username)
     {
         return $this->where('email', $username)->where('user_type', 3)->first();
+    }
+
+    public function generateToken()
+    {
+        $this->api_token = str_random(60);
+        $this->save();
+
+        return $this->api_token;
     }
 
 }

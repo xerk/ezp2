@@ -59,6 +59,7 @@ class LoginController extends Controller
         }
         return redirect()->to($destination);
     }
+    
     public function redirectTo()
     {
         return str_replace(url('/'), '', session()->get('previousUrl', '/'));
@@ -103,5 +104,39 @@ class LoginController extends Controller
         // $user->token;
 
         return redirect($this->redirectTo);
+    }
+
+    public function login(Request $request)
+    {
+        $this->validateLogin($request);
+
+        if ($this->attemptLogin($request)) {
+            $user = $this->guard()->user();
+            $user->generateToken();
+
+            return response()->json([
+                'data' => $user->toArray(),
+            ]);
+        }
+
+        return $this->sendFailedLoginResponse($request);
+    }
+
+    public function logout2(Request $request)
+    {
+        $user = Auth::guard('api')->user();
+
+        if ($user) {
+            $user->api_token = null;
+            $user->save();
+        }
+
+        return response()->json(['data' => 'User logged out.'], 200);
+    }
+
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        $errors = [ 'error' => trans('auth.failed') ];
+        return response()->json($errors, 422);
     }
 }

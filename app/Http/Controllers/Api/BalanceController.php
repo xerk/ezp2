@@ -16,11 +16,15 @@ class BalanceController extends Controller
     public function index(Request $request)
     {
         $user = $request->user();
-        if ($user->user_type == 3) {
-            $balance = SupplierBalance::where('user_id', $user->id)->first();
-            return response()->json(['balance' => $balance, 'status' => true, 'code' => 200]);
+        if (!$user->getOriginalContent()['error']) {
+            if ($user->user_type == 3) {
+                $balance = SupplierBalance::where('user_id', $user->id)->first();
+                return response()->json(['balance' => $balance, 'status' => true, 'code' => 200]);
+            } else {
+                return response()->json(['error' => __('You are not distributor!')]);
+            }
         } else {
-            return response()->json(['error' => __('You are not distributor!')]);
+            return $user;
         }
     }
 
