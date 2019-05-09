@@ -50,6 +50,8 @@ Route::get('/map', function () {
     return view('welcome')->with('map', $map);
 })->name('map.index');
 
+Route::get('terms', 'TermsController@index')->name('terms.index');
+
 Route::get('checkout', 'CheckoutController@index')->name('checkout.index');
 Route::post('checkout', 'CheckoutController@store')->name('checkout.store');
 Route::post('checkout-distributor', 'CheckoutController@distributor')->name('checkout.distributor');
