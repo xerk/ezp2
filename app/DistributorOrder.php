@@ -28,4 +28,9 @@ class DistributorOrder extends Model
     {
         return $this->belongsTo('App\User', 'user_id');
     }
+
+    public function product()
+    {
+        return $this->belongsTo('App\product', 'product_id');
+    }
 }

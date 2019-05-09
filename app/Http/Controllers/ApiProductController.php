@@ -15,7 +15,7 @@ class ApiProductController extends Controller
      */
     public function index(Request $request)
     {
-        $per_page = $request->per_page ? $request->per_page : 10;
+        $per_page = $request->per_page ? $request->per_page : 50;
         if ($request->has('company')) {
             $products = Product::where('company_id', $request->company)->paginate($per_page);
         } else {

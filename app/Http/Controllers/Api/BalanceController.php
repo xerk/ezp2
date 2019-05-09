@@ -17,12 +17,12 @@ class BalanceController extends Controller
     {
         $user = $request->user();
         
-            if ($user->user_type == 3) {
-                $balance = SupplierBalance::where('user_id', $user->id)->first();
-                return response()->json(['balance' => $balance, 'status' => true, 'code' => 200]);
-            } else {
-                return response()->json(['error' => __('You are not distributor!')]);
-            }
+        if ($user->user_type == 3) {
+            $balance = SupplierBalance::where('user_id', $user->id)->first();
+            return response()->json(['balance' => $balance, 'status' => true, 'code' => 200]);
+        } else {
+            return response()->json(['error' => __('You are not distributor!')]);
+        }
     }
 
     /**
