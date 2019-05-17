@@ -3,8 +3,8 @@
     <div class="welcome_slides">
 
         <!-- Single Slide Start -->
-        <div class="single_slide home-3 bg-img height-navbar background-overlay-white" style="background-image: url({{ asset('img/bg-img/slide-7.png') }});">
-            <div class="container-fluid h-100">
+        <div class="single_slide home-3 bg-img height-navbar" style="background-image: url({{ asset('img/bg-img/slide-7.png') }});">
+            {{-- <div class="container-fluid h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12">
                         <div class="welcome_slide_text text-center">
@@ -13,12 +13,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
         <!-- Single Slide Start -->
-        <div class="single_slide home-3 bg-img height-navbar background-overlay-purple" style="background-image: url({{ asset('img/bg-img/slide-8.png') }});">
-            <div class="container-fluid h-100">
+        <div class="single_slide home-3 bg-img height-navbar" style="background-image: url({{ asset('img/bg-img/slide-8.png') }});">
+            {{-- <div class="container-fluid h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12">
                         <div class="welcome_slide_text text-center">
@@ -27,12 +27,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
         <!-- Single Slide Start -->
-        <div class="single_slide home-3 bg-img height-navbar background-overlay" style="background-image: url({{ asset('img/bg-img/slide-9.png') }});">
-            <div class="container-fluid h-100">
+        <div class="single_slide home-3 bg-img height-navbar" style="background-image: url({{ asset('img/bg-img/slide-9.png') }});">
+            {{-- <div class="container-fluid h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12">
                         <div class="welcome_slide_text text-center">
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
     </div>
