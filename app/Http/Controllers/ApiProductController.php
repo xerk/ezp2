@@ -19,7 +19,7 @@ class ApiProductController extends Controller
         if ($request->has('company')) {
             $products = Product::where('company_id', $request->company)->paginate($per_page);
         } else {
-            return response()->json(['error' => 'Please send company params'], 401);
+            return response()->json(['error' => 'Please send company params']);
         }
         // if ($request->company != '') {
         //     $products = Product::where('company_id', $request->company)->paginate($per_page);

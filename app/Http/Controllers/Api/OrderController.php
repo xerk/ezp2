@@ -38,7 +38,7 @@ class OrderController extends Controller
         
         if ($user->user_type == 3) {
             if ($this->notEnoughCredit($request)) {
-                return response()->json(['error' => __('We are sorry we did not complete the process because there was not enough credit'), 'status' => false], 401);
+                return response()->json(['error' => __('We are sorry we did not complete the process because there was not enough credit'), 'status' => false]);
             }
             
     
@@ -56,7 +56,7 @@ class OrderController extends Controller
     
             $this->decreaseBalance($request);
             if ($this->decreaseBalance($request)) {
-                return response()->json(['error' => __('You do not have an account here'), 'status' => false], 401); 
+                return response()->json(['error' => __('You do not have an account here'), 'status' => false]); 
             }
             
     
