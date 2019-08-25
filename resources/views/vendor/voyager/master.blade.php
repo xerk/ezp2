@@ -12,16 +12,16 @@
     <link rel="shortcut icon" href="{{ voyager_asset('images/logo-icon.png') }}" type="image/x-icon">
 
     @if (Auth::user()->settings['locale'] == 'ar')
-        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
         <style>
             * {
-                font-family: 'Droid Arabic Kufi', 'Open Sans';
+                font-family: 'Cairo', 'Open Sans';
             }
             .form-control {
                 height: 34px;
             }
             .btn, .modal .modal-dialog .modal-header {
-                font-family: 'Droid Arabic Kufi', 'Open Sans',sans-serif;
+                font-family: 'Cairo', 'Open Sans',sans-serif;
             }
         </style>
     @endif
