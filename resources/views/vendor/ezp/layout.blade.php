@@ -4,7 +4,7 @@
         @include('vendor.ezp.partials.header')
         @yield('extra-css')
         @if (app()->getLocale() == 'ar')
-            <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css"/>
+            <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
         @endif
     </head>
     <style>
