@@ -76,7 +76,7 @@
 }
 
 body {
-    font-family: 'Droid Arabic Kufi', 'Open Sans', sans-serif;
+    font-family: 'CairoKufi', 'Open Sans', sans-serif;
     font-weight: 400;
 }
 
@@ -89,7 +89,7 @@ h6 {
     color: #3a3a3a;
     margin: 0 0 15px;
     line-height: 1.2;
-    font-family: 'Droid Arabic Kufi', 'Open Sans', sans-serif;
+    font-family: 'CairoKufi', 'Open Sans', sans-serif;
     font-weight: 400;
 }
 
@@ -97,7 +97,7 @@ p {
     color: #3a3a3a;
     font-size: 1em;
     line-height: 1.5;
-    font-family: 'Droid Arabic Kufi', 'Open Sans', sans-serif;
+    font-family: 'CairoKufi', 'Open Sans', sans-serif;
     font-weight: 400;
 }
 
